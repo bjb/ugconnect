@@ -1,0 +1,48 @@
+
+.sidebar {
+    border: 1em;
+    width: 33%;
+    /* border: solid 1px red; */
+    float: right;
+    margin-bottom: 0.83em;
+    padding-left: 1em;
+}
+
+.sidebar div {
+    text-align: right;
+}
+
+
+.sidebar .sponsor-div {
+    background-color: #CCC;
+}
+
+.sidebar h1,
+.sidebar h2,
+.sidebar h3,
+.sidebar div.sponsor-div h1,
+.sidebar div.sponsor-div h2,
+.sidebar div.sponsor-div h3,
+.sidebar div.sponsor-div h4 {
+    text-align: center;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    list-style: none none;
+}
+
+
+img.platinum {
+    height: 65px;
+    /* width: 257px; */
+}
+
+
+img.silver {
+    height: 20px;
+}

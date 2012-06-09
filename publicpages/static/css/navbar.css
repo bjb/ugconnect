@@ -1,0 +1,42 @@
+
+div#navbar {
+    height: 100%;
+    background-color: #CCF;
+}
+
+div#navbar ul {
+    list-style: none;
+    display: block;
+}
+
+div#navbar ul li {
+    list-style: none;
+    display: inline;
+}
+
+div#navbar li div {
+    margin-left: 5px;
+    background-color: #AAF;  /* lavender */
+    width: 10em;
+    float: left;
+    text-align: center;
+}
+
+div#navbar a:link {
+    color:  #915;  /* darkred */
+}
+
+div#navbar a:visited {
+    color:  black;
+}
+
+
+div#navbar a:active {
+    color: #00A;       /* darkblue */
+}
+
+div#navbar a:hover, #navbar ul li div:hover {
+    background-color: #A7F;  /* mauve */
+}
+
+

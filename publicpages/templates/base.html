@@ -1,0 +1,33 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/base.css?{{ some_random_number }}" />
+    <link rel="stylesheet" href="/static/css/header.css?{{ some_random_number }}" />
+    <link rel="stylesheet" href="/static/css/navbar.css?{{ some_random_number }}" />
+    <link rel="stylesheet" href="/static/css/sidebar.css?{{ some_random_number }}" />
+    <link rel="stylesheet" href="/static/css/footer.css?{{ some_random_number }}" />
+    <link rel="stylesheet" href="/static/css/content.css?{{ some_random_number }}" />
+    <title>{% block title %}Default Title:  Open Source Festival{% endblock %}</title>
+</head>
+
+<body>
+  <div id="fullpage">
+    <div id="page">
+      {% include "header.html" %}
+
+      {% include "navbar.html" %}
+
+      <div class="columns">
+        {% include "sidebar.html" %}
+        <div id="content">
+          {% block content %}{% trans 'Default content' %}{% endblock %}
+        </div>
+        <div class="clearfloat"></div>
+      </div>
+      {% include "footer.html" %}
+    </div>
+  </div>
+</body>
+</html>

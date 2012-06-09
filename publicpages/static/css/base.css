@@ -1,0 +1,28 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div#fullpage {
+}
+
+div#page {
+    width: 800px;
+    margin: 20px auto;
+    /* border: solid 1px red; */
+}
+
+
+
+
+
+div.clearfloat {
+    clear: both;
+}
+
+
+
+.faketext {
+    background-color: pink;
+}

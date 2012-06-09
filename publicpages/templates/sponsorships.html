@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h2>Sponsorships</h2>
+<h3>Register</h3>
+<form>
+  <label for="name">Organization name:</label>
+  <input type="text" placeholder="organization name" id="id_name" name="name" />
+  <br />
+  <label for="numtables">Sponsorship Level offered</label>
+  <select id="id_level" name="level">
+    <option value="0">-- Select one: --</option>
+    <option value="1">Platinum</option>
+    <option value="2">Gold</option>
+    <option value="3">Silver</option>
+    <option value="4">Bronze</option>
+    <option value="5">In kind</option>
+  </select>
+  <br />
+  <label for="comment">Anything else you'd like to tell us?</label>
+  <textarea cols="60" rows="8" name="comment" id="id_comment"></textarea>
+  <br />
+  <input type="Submit" value="Submit"></input>
+</form>
+<h3>Levels</h3>
+<p>There are four levels of sponsorship for money sponsors,
+and we also accept other kinds of sponsorship (please see below).</p>
+<ul>
+<li>Platinum sponsor:  $1,500</li>
+<li>Gold sponsor:  $750</li>
+<li>Silver sponsor:  $300</li>
+<li>Bronze sponsor:  $50</li>
+</ul>
+<p>We also accept sponsorships in the form of items needed to put
+on the event, such as supplying:
+</p>
+<ul>
+<li>the venue,</li>
+<li>food</li>
+<li>printed material</li>
+<li>giveaways</li>
+<li>volunteer thank-yous</li>
+<li>on-site wireless networking</li>
+<li>etc.</li>
+</ul>
+{% endblock %}
