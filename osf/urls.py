@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'osf.views.home', name='home'),
+    url(r'^$', 'publicpages.views.index', name='home'),
     # url(r'^osf/', include('osf.foo.urls')),
     url(r'^publicpages/', include('publicpages.urls')),
 
