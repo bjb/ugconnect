@@ -13,6 +13,9 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
+import site
+site.addsitedir('/usr/local/pythonenv/OSF/lib/python2.5/site-packages')
+
 import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "osf.settings")
