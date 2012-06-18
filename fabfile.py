@@ -46,6 +46,9 @@ def wipe_virtualenv ():
         with cd (VIRTUALENVDIR):
             sudo ('rm -rf %s' % VIRTUALENV)
 
+    # don't bother to uninstall the following
+    #sudo ('apt-get install python-dev libpq-dev')
+
 def wipe_all ():
     '''
     remove all traces of the deployment from the target machine
@@ -59,6 +62,20 @@ def virtualenv ():
     '''
     install the virtualenv
     '''
+    # psycog2 and ssh need these apt packages
+    # python-dev
+    # libpq-dev
+
+    # libssl-dev
+    # libkrb5-dev
+    # libkadm55
+    # zlib1g-dev
+    # comerr-dev
+
+    # when I upgrade the server to squeeze, I can uncomment the following
+    # in the meantime, I had to do it by hand
+    #sudo ('apt-get install python-dev libpq-dev')
+
     # virtualenv stuff
     with cd (VIRTUALENVDIR):
         sudo ('virtualenv --no-site-packages OSF')
