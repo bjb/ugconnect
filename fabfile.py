@@ -158,6 +158,8 @@ def deploy_version (version_id):
 
     with cd (PROJECT_ROOT):
         with prefix ('source %s' % ACTIVATE_SCRIPT):
+            sudo ('chown bjb.www-data static')
+            sudo ('chmod 2775 static')
             run ('./manage.py syncdb --settings=osf.settings')
             run ('./manage.py migrate --settings=osf.settings')
             run ('./manage.py collectstatic --settings=osf.settings')
