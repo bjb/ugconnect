@@ -166,6 +166,9 @@ def deploy_version (version_id):
             run ('./manage.py compilemessages --settings=osf.settings')
             sudo ('chown bjb.www-data osf/log')
             sudo ('chmod 2775 osf/log')
+            sudo ('touch osf/log/error.log')
+            sudo ('chown bjb.www-data osf/log/error.log')
+            sudo ('chmod 775 osf/log/error.log')
 
     restart_app ()
 
