@@ -38,11 +38,18 @@
 
 
 img.platinum {
-    height: 65px;
-    /* width: 257px; */
+    height: 55px;
 }
 
-
-img.silver {
+img.gold, img.silver, img.bronze {
     height: 20px;
 }
+
+
+/*
+#shopify_item {
+    height: 57px;
+    width: 189px;
+    overflow: hidden;
+}
+*/
