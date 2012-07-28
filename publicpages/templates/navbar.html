@@ -4,10 +4,41 @@
     Here is the default menu:
   </p -->
   <ul>
-    <li><!-- a href="/publicpages/new/" --><div class="{{ menustatus.news }}">News</div><!-- /a --></li>
-    <li><a href="{% url sponsorships %}"><div class="{{ menustatus.sponsor }}">Sponsorships</div></a></li>
-    <li><a href="{% url exhibitors %}"><div class="{{ menustatus.exhibitor }}">User Groups</div></a></li>
-    <li><a href="{% url whenwhere %}"><div class="{{ menustatus.whenwhere }}">Place and Time</div></a></li>
+    <li>
+      <!-- a href="/publicpages/new/" -->
+        <div class="{{ menustatus.news }}">
+          News
+        </div>
+      <!-- /a -->
+    </li>
+    <li>
+      <a href="{% url sponsorships %}">
+        <div class="{{ menustatus.sponsor }}">
+          Sponsorships
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="{% url exhibitors %}">
+        <div class="{{ menustatus.exhibitor }}">
+          User Groups
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="{% url whenwhere %}">
+        <div class="{{ menustatus.whenwhere }}">
+          Place and Time
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="{% url contactus %}">
+        <div class="{{ menustatus.contactus }}">
+          Contact Us
+        </div>
+      </a>
+    </li>
   </ul>
   <div class="clearfloat"></div>
 </div>

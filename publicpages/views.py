@@ -13,11 +13,22 @@ menustatus = {
     'news' : 'inactive',
     'sponsor' : '',
     'exhibitor' : '',
-    'whenwhere' : ''
+    'whenwhere' : '',
+    'contactus' : '',
 }
 
 
+def clear_menustatus ():
+    for k, v in menustatus.iteritems ():
+        menustatus[k] = ''
+
+    menustatus['news'] = 'inactive'
+
+
+
 def index (request):
+
+    clear_menustatus ()
 
     sponsors = Sponsor.objects.all ()
     ugs = UserGroup.objects.all ()
@@ -34,6 +45,7 @@ def index (request):
 
 def sponsorships (request):
 
+    clear_menustatus ()
     menustatus['sponsor'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
@@ -50,6 +62,7 @@ def sponsorships (request):
 
 def whenwhere (request):
 
+    clear_menustatus ()
     menustatus['whenwhere'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
@@ -66,12 +79,30 @@ def whenwhere (request):
 
 def exhibitors (request):
 
+    clear_menustatus ()
     menustatus['exhibitor'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
     ugs = UserGroup.objects.all ()
 
     return render_to_response ('exhibitors.html',
+                               {
+            'sponsors' : sponsors,
+            'ugs' : ugs,
+            'settings' : settings,
+            'menustatus' : menustatus,
+            },
+                               context_instance = RequestContext (request))
+
+def contactus (request):
+
+    clear_menustatus ()
+    menustatus['contactus'] = 'selected'
+
+    sponsors = Sponsor.objects.all ()
+    ugs = UserGroup.objects.all ()
+
+    return render_to_response ('contactus.html',
                                {
             'sponsors' : sponsors,
             'ugs' : ugs,
