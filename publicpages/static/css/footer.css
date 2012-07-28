@@ -1,5 +1,29 @@
 div#footer {
     font-size: 70%;
-    text-align: center;
-    background-color:  #CCF;
+    background-color:  #DDF;
+}
+
+div#footer .footertext {
+    text-align:  center;
+}
+
+div#footer .footer-checklinks {
+    text-align: left;
+    float: left;
+}
+
+
+div#footer .footer-righttext {
+    text-align:  right;
+    float: right;
+}
+
+
+div.clearfloat {
+    clear: both;
+}
+
+div#footer a {
+    text-decoration: none;
+    color:  #00A;
 }

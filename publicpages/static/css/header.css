@@ -1,13 +1,13 @@
 
 
 div#header h1 {
-    color:  #915;
+    color:  #00A;
     text-align: center;
 }
 
 div#header a:link, div#header a:visited {
     text-decoration: none;
-    color:  #915;
+    color:  #00A;
 }
 
 

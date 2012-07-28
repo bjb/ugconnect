@@ -13,8 +13,12 @@
 }
 
 
-.sidebar .sponsor-div {
-    background-color: #CCC;
+.sidebar h2 {
+   background-color: #CCF;
+}
+
+.sidebar .sponsor-div h3 {
+   background-color: #DDF;
 }
 
 .sidebar h1,
