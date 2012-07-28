@@ -173,6 +173,8 @@ def deploy_version (version_id):
         run ('rm -rf %s' % PROJECT)
         run ('git archive --format=tar --remote=%s --prefix=%s/ %s | tar -xf -' % (REPOSITORY, PROJECT, version_id))
 
+    local ('git checkout master')
+
     with cd (PROJECT_ROOT):
         with prefix ('source %s' % ACTIVATE_SCRIPT):
             sudo ('chown bjb.www-data static')
