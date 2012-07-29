@@ -13,13 +13,12 @@
       </li>
       {% endifequal %}
       {% endfor %}
+      <li></li>
     </ul>
   </div>
   <div class="gold-div sponsor-div">
     <h3>Gold</h3>
     <ul>
-      <li>This spot is open!</li>
-      <li>There are a couple of spots at this level.</li>
       {% for sponsor in sponsors %}
       {% ifequal 'gold' sponsor.level %}
       <li>
@@ -28,6 +27,8 @@
       </li>
       {% endifequal %}
       {% endfor %}
+      <li>This spot is open!</li>
+      <li>There are a couple of spots at this level.</li>
     </ul>
   </div>
   <div class="silver-div sponsor-div">
@@ -41,16 +42,13 @@
       </li>
       {% endifequal %}
       {% endfor %}
-      <li>
-        This spot is open!  There are a few spots at this level.
-      </li>
+      <li>This spot is open!</li>
+      <li>There are a few spots at this level.</li>
     </ul>
   </div>
   <div class="bronze-div sponsor-div">
     <h3>Bronze</h3>
     <ul>
-      <li>This spot is open!</li>
-      <li>There are several spots at this level.</li>
       {% for sponsor in sponsors %}
       {% ifequal 'bronze' sponsor.level %}
       <li>
@@ -59,6 +57,8 @@
       </li>
       {% endifequal %}
       {% endfor %}
+      <li>This spot is open!</li>
+      <li>There are several spots at this level.</li>
     </ul>
   </div>
 </div>
