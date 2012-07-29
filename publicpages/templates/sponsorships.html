@@ -4,9 +4,9 @@
 <h2>Sponsorships</h2>
 <h3>List of confirmed sponsors</h3>
 <ul>
-  <li>Shopify</li>
-  <li>BSD</li>
-  <li>ix</li>
+  {% for ss in sponsors %}
+  <li>{{ ss.organization.name }}</li>
+  {% endfor %}
 </ul>
 <h3>Levels</h3>
 <p>There are four levels of sponsorship for money sponsors,

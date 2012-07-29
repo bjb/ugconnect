@@ -20,7 +20,9 @@ have access from 10:00 am.
 </ul>
 <h3>List of confirmed user groups</h3>
 <ul>
-  <li>OCLUG</li>
+  {% for ug in ugs %}
+  <li>{{ ug.organization.name }}</li>
+  {% endfor %}
 </ul>
 <h3>Suggestions for what to present</h3>
 <div class="base">
