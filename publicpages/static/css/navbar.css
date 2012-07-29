@@ -23,11 +23,6 @@ div#navbar ul, div#navbar ul li, div#navbar ul li div, div#navbar ul li div a {
     height:  100%;
 }
 
-div#navbar ul li div a {
-    padding: auto;
-    /* vertical-align: middle; */
-}
-
 div#navbar ul li div {
     margin-left: 5px;
     background-color: #CCF;
