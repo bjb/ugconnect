@@ -12,32 +12,32 @@
       <!-- /a -->
     </li>
     <li>
-      <a href="{% url sponsorships %}">
-        <div class="{{ menustatus.sponsor }}">
-          Sponsorships
-        </div>
-      </a>
+      <div class="{{ menustatus.sponsor }}">
+        <a href="{% url sponsorships %}">
+          Sponsors
+        </a>
+      </div>
     </li>
     <li>
-      <a href="{% url exhibitors %}">
-        <div class="{{ menustatus.exhibitor }}">
-          User Groups
-        </div>
-      </a>
+      <div class="{{ menustatus.exhibitor }}">
+        <a href="{% url exhibitors %}">
+          User<br />Groups
+        </a>
+      </div>
     </li>
     <li>
-      <a href="{% url whenwhere %}">
-        <div class="{{ menustatus.whenwhere }}">
-          Place and Time
-        </div>
-      </a>
+      <div class="{{ menustatus.whenwhere }}">
+        <a href="{% url whenwhere %}">
+          Time<br />Place
+        </a>
+      </div>
     </li>
     <li>
-      <a href="{% url contactus %}">
-        <div class="{{ menustatus.contactus }}">
-          Contact Us
-        </div>
-      </a>
+      <div class="{{ menustatus.contactus }}">
+        <a href="{% url contactus %}">
+          Contact<br />Us
+        </a>
+      </div>
     </li>
   </ul>
   <div class="clearfloat"></div>

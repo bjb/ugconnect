@@ -19,19 +19,19 @@ div#navbar ul li {
     display: inline;
 }
 
-div#navbar ul, div#navbar ul li, div#navbar ul li a, div#navbar ul li a div, div#navbar ul li div {
+div#navbar ul, div#navbar ul li, div#navbar ul li div, div#navbar ul li div a {
     height:  100%;
 }
 
-div#navbar ul li a div {
+div#navbar ul li div a {
     padding: auto;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 
-div#navbar li div {
+div#navbar ul li div {
     margin-left: 5px;
     background-color: #CCF;
-    width: 8em;
+    width: 120px;
     float: left;
     text-align: center;
     vertical-align: middle;
@@ -40,17 +40,12 @@ div#navbar li div {
 div#navbar a:link, div#navbar a:visited, div#navbar a:active {
     color:  #00A;
 }
-/*
-div#navbar a:visited {
-    color:  black;
-}
-div#navbar a:active {
-    color: #00A;
-}
-*/
 
-div#navbar a:hover, #navbar ul li div:hover {
+#navbar ul li div:hover {
     background-color: #915;
+}
+
+#navbar ul li div:hover a {
     color: white;
 }
 
