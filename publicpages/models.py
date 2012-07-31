@@ -11,6 +11,13 @@ class Organization(models.Model):
     graphicurl = models.TextField (default = 'images/unknown.png', null = True, blank = True)
 
 
+    def __repr__(self):
+        return self.name
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__()
+
+
 SPONSORCHOICES = (
     ('unknown', 'unknown'),
     ('bronze', 'bronze'),
@@ -23,9 +30,21 @@ class Sponsor (models.Model):
     organization = models.ForeignKey (Organization)
     level = models.CharField (max_length = 16, choices = SPONSORCHOICES, default = 'unknown')
 
+    def __repr__(self):
+        return self.organization.name
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__()
+
 
 class UserGroup (models.Model):
     organization = models.ForeignKey (Organization)
     mailinglist = models.CharField (max_length = 128, null = True, blank = True)
+
+    def __repr__(self):
+        return self.organization.name
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__()
 
 
