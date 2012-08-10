@@ -61,7 +61,7 @@ class Sponsor (models.Model):
 
 
 
-class Payments (models.Model):
+class Payment (models.Model):
     '''Each time a sponsor gives us money, we record it here.'''
     sponsor = models.ForeignKey (Sponsor)
     amount = models.IntegerField ()  # in cents; Decimal can only be used with python 2.7 and my dev box doesn't have that
