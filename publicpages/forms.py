@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from captcha.fields import CaptchaField
 from publicpages.models import Organization, UserGroup, Sponsor, SPONSORCHOICES
 from django.contrib.auth.models import User
 
@@ -27,6 +28,7 @@ class OrganizationForm (forms.Form):
                                  widget = forms.TextInput (attrs={"size" : "64"}),
                                  max_length = 128, # initial = 'images/unknown.png',
                                  required = False)
+    captcha = CaptchaField ()
 
 
     def clean_name (self):

@@ -65,18 +65,13 @@ on the event, such as supplying:
     {{ form.linkurl.label_tag }}
     {{ form.linkurl }}
   </div>
-  <div class="field graphicurl">
-    {{ form.graphicurl.errors }}
-    {{ form.graphicurl.label_tag }}
-    {{ form.graphicurl }}
-  </div>
   <div class="field level">
     {{ form.level.errors }}
     {{ form.level.label_tag }}
     {{ form.level }}
   </div>
   <div class="field comment">
-    {{ form.comments.errors }}
+    {{ form.comment.errors }}
     {{ form.comment.label_tag }}
     {{ form.comment }}
   </div>
@@ -84,6 +79,11 @@ on the event, such as supplying:
     {{ form.howhear.errors }}
     {{ form.howhear.label_tag }}
     {{ form.howhear }}
+  </div>
+  <div class="field captcha">
+    {{ form.captcha.errors }}
+    {{ form.captcha.label_tag }}
+    {{ form.captcha }}
   </div>
   <input type="submit" value="Submit"></input>
 </form>

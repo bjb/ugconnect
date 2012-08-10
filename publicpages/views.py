@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import decorators    # for decorators.login_required
 from django.contrib.auth import models  # for models.User
 
-from publicpages.models import Sponsor, UserGroup
+from publicpages.models import Sponsor, UserGroup, Organization
 from publicpages.forms import SponsorForm, UserGroupForm
 from osf import settings
 
@@ -61,8 +61,30 @@ def sponsorships (request):
     if 'POST' == request.method:
         sf = SponsorForm (request.POST)
         if sf.is_valid ():
+            # do something with the info
+            theOrgQs = Organization.objects.filter (name__exact = sf.cleaned_data['name'])
+            if 0 < theOrgQs.count ():
+                theOrg = theOrgQs[0]
+            else:
+                theOrg = Organization (name = sf.cleaned_data['name'],
+                                       contactname = sf.cleaned_data['contactname'],
+                                       contactinfo = sf.cleaned_data['contactinfo'])
+            if sf.cleaned_data['linkurl']:
+                theOrg.linkurl = sf.cleaned_data['linkurl']
+            #if sf.cleaned_data['graphicurl']:
+            #    theOrg.graphicurl = sf.cleaned_data['graphicurl']
+            if sf.cleaned_data['comment']:
+                theOrg.comment = sf.cleaned_data['comment']
+            if sf.cleaned_data['howhear']:
+                theOrg.howhear = sf.cleaned_data['howhear']
+            theOrg.save ()
+            theSponsor = Sponsor (organization = theOrg,
+                                  level = sf.cleaned_data['level'],
+                                  confirmed = False)
+            theSponsor.save ()
+
             sf = SponsorForm ()
-            message = 'Thank you!  We\'ll get in touch soon to confirm'
+            message = 'Thank you!  We\'ll get in touch soon with %s to confirm %s\'s sponsorship.' % (theOrg.contactname, theOrg.name)
     else:
         sf = SponsorForm ()
 
