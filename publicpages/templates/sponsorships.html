@@ -5,7 +5,16 @@
 <h2>Sponsorships</h2>
 <h3>List of confirmed sponsors</h3>
 <ul>
-  {% for ss in sponsors %}
+  {% for ss in sorted_sponsors.0 %}
+  <li>{{ ss.organization.name }}</li>
+  {% endfor %}
+  {% for ss in sorted_sponsors.1 %}
+  <li>{{ ss.organization.name }}</li>
+  {% endfor %}
+  {% for ss in sorted_sponsors.2 %}
+  <li>{{ ss.organization.name }}</li>
+  {% endfor %}
+  {% for ss in sorted_sponsors.3 %}
   <li>{{ ss.organization.name }}</li>
   {% endfor %}
 </ul>
@@ -30,24 +39,52 @@ on the event, such as supplying:
 <li>on-site wireless networking</li>
 <li>etc.</li>
 </ul>
-<!--h3>Register</h3 -->
-<!-- form>
-  <label for="name">Organization name:</label>
-  <input type="text" placeholder="organization name" id="id_name" name="name" />
-  <br />
-  <label for="numtables">Sponsorship Level offered</label>
-  <select id="id_level" name="level">
-    <option value="0"> - - Select one: - - </option>
-    <option value="1">Platinum</option>
-    <option value="2">Gold</option>
-    <option value="3">Silver</option>
-    <option value="4">Bronze</option>
-    <option value="5">In kind</option>
-  </select>
-  <br />
-  <label for="comment">Anything else you'd like to tell us?</label>
-  <textarea cols="60" rows="8" name="comment" id="id_comment"></textarea>
-  <br />
+<h3>Register as a sponsor</h3>
+<form class="sponsor-form" id="sponsor-form" name="sponsor-form"
+      action="{% url sponsorships %}" method="POST">
+  {% csrf_token %}
+  <p>{{ message }}</p>
+  {{ form.non_field_errors }}
+  <div class="field name">
+    {{ form.name.errors }}
+    {{ form.name.label_tag }}
+    {{ form.name }}
+  </div>
+  <div class="field contactname">
+    {{ form.contactname.errors }}
+    {{ form.contactname.label_tag }}
+    {{ form.contactname }}
+  </div>
+  <div class="field contactinfo">
+    {{ form.contactinfo.errors }}
+    {{ form.contactinfo.label_tag }}
+    {{ form.contactinfo }}
+  </div>
+  <div class="field linkurl">
+    {{ form.linkurl.errors }}
+    {{ form.linkurl.label_tag }}
+    {{ form.linkurl }}
+  </div>
+  <div class="field graphicurl">
+    {{ form.graphicurl.errors }}
+    {{ form.graphicurl.label_tag }}
+    {{ form.graphicurl }}
+  </div>
+  <div class="field level">
+    {{ form.level.errors }}
+    {{ form.level.label_tag }}
+    {{ form.level }}
+  </div>
+  <div class="field comment">
+    {{ form.comments.errors }}
+    {{ form.comment.label_tag }}
+    {{ form.comment }}
+  </div>
+  <div class="field howhear">
+    {{ form.howhear.errors }}
+    {{ form.howhear.label_tag }}
+    {{ form.howhear }}
+  </div>
   <input type="submit" value="Submit"></input>
-</form -->
+</form>
 {% endblock %}

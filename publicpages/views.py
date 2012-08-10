@@ -5,6 +5,7 @@ from django.contrib.auth import decorators    # for decorators.login_required
 from django.contrib.auth import models  # for models.User
 
 from publicpages.models import Sponsor, UserGroup
+from publicpages.forms import SponsorForm, UserGroupForm
 from osf import settings
 
 import datetime
@@ -31,11 +32,13 @@ def index (request):
     clear_menustatus ()
 
     sponsors = Sponsor.objects.all ()
+    sorted_sponsors = Sponsor.the_sponsors ()
     ugs = UserGroup.objects.all ()
 
     return render_to_response ('index.html',
                                {
             'sponsors' : sponsors,
+            'sorted_sponsors' : sorted_sponsors,
             'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
@@ -49,14 +52,29 @@ def sponsorships (request):
     menustatus['sponsor'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
+    sorted_sponsors = Sponsor.the_sponsors ()
     ugs = UserGroup.objects.all ()
+
+    sf = None
+    message = ''
+
+    if 'POST' == request.method:
+        sf = SponsorForm (request.POST)
+        if sf.is_valid ():
+            sf = SponsorForm ()
+            message = 'Thank you!  We\'ll get in touch soon to confirm'
+    else:
+        sf = SponsorForm ()
 
     return render_to_response ('sponsorships.html',
                                {
             'sponsors' : sponsors,
+            'sorted_sponsors' : sorted_sponsors,
             'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
+            'form' : sf,
+            'message' : message,
             },
                                context_instance = RequestContext (request))
 
@@ -66,11 +84,13 @@ def whenwhere (request):
     menustatus['whenwhere'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
+    sorted_sponsors = Sponsor.the_sponsors ()
     ugs = UserGroup.objects.all ()
 
     return render_to_response ('whenwhere.html',
                                {
             'sponsors' : sponsors,
+            'sorted_sponsors' : sorted_sponsors,
             'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
@@ -83,11 +103,13 @@ def exhibitors (request):
     menustatus['exhibitor'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
+    sorted_sponsors = Sponsor.the_sponsors ()
     ugs = UserGroup.objects.all ()
 
     return render_to_response ('exhibitors.html',
                                {
             'sponsors' : sponsors,
+            'sorted_sponsors' : sorted_sponsors,
             'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
@@ -100,11 +122,13 @@ def contactus (request):
     menustatus['contactus'] = 'selected'
 
     sponsors = Sponsor.objects.all ()
+    sorted_sponsors = Sponsor.the_sponsors ()
     ugs = UserGroup.objects.all ()
 
     return render_to_response ('contactus.html',
                                {
             'sponsors' : sponsors,
+            'sorted_sponsors' : sorted_sponsors,
             'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,

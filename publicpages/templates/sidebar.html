@@ -5,13 +5,15 @@
   <div class="platinum-div sponsor-div">
     <h3>Platinum</h3>
     <ul>
-      {% for sponsor in sponsors %}
-      {% ifequal 'platinum' sponsor.level %}
+      {% for sponsor in sorted_sponsors.0 %}
       <li>
-        <img class="platinum" src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}" alt="sponsor logo" />
-        <a href="http://{{ sponsor.organization.linkurl }}">{{ sponsor.organization.name }}</a>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="platinum"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}"/>
+        </a>
       </li>
-      {% endifequal %}
       {% endfor %}
       <li></li>
     </ul>
@@ -19,13 +21,15 @@
   <div class="gold-div sponsor-div">
     <h3>Gold</h3>
     <ul>
-      {% for sponsor in sponsors %}
-      {% ifequal 'gold' sponsor.level %}
+      {% for sponsor in sorted_sponsors.1 %}
       <li>
-        <img class="gold" src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}" alt="sponsor logo" />
-        <a href="http://{{ sponsor.organization.linkurl }}">{{ sponsor.organization.name }}</a>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="gold"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}"/>
+        </a>
       </li>
-      {% endifequal %}
       {% endfor %}
       <li>This spot is open!</li>
       <li>There are a couple of spots at this level.</li>
@@ -34,13 +38,15 @@
   <div class="silver-div sponsor-div">
     <h3>Silver</h3>
     <ul>
-      {% for sponsor in sponsors %}
-      {% ifequal 'silver' sponsor.level %}
+      {% for sponsor in sorted_sponsors.2 %}
       <li>
-        <img class="silver" src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}" alt="sponsor logo" />
-        <a href="http://{{ sponsor.organization.linkurl }}">{{ sponsor.organization.name }}</a>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="silver"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}" />
+        </a>
       </li>
-      {% endifequal %}
       {% endfor %}
       <li>This spot is open!</li>
       <li>There are a few spots at this level.</li>
@@ -49,13 +55,15 @@
   <div class="bronze-div sponsor-div">
     <h3>Bronze</h3>
     <ul>
-      {% for sponsor in sponsors %}
-      {% ifequal 'bronze' sponsor.level %}
+      {% for sponsor in sorted_sponsors.3 %}
       <li>
-        <img class="bronze" src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}" alt="sponsor logo" />
-        <a href="http://{{ sponsor.organization.linkurl }}">{{ sponsor.organization.name }}</a>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="bronze"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}" />
+        </a>
       </li>
-      {% endifequal %}
       {% endfor %}
       <li>This spot is open!</li>
       <li>There are several spots at this level.</li>
