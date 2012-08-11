@@ -71,6 +71,7 @@ class Payment (models.Model):
 class UserGroup (models.Model):
     organization = models.ForeignKey (Organization)
     mailinglist = models.CharField (max_length = 128, null = True, blank = True)
+    confirmed = models.BooleanField (default = False)  # only display confirmed UserGroups
 
     def __repr__(self):
         return self.organization.name

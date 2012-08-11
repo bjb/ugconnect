@@ -15,7 +15,7 @@ have access from 10:00 am.
   <li>Find new people who might speak at your meetings</li>
   <li>Find other groups that are similar to yours. Example:
     <ul>
-      <li>Agile Ottawa and SCRUM users group share a Christmas meeting</li>
+      <li>Agile Ottawa and SCRUM user groups share a Christmas meeting</li>
       <li>They also share (a few) members and speakers</li>
     </ul>
   </li>
@@ -40,22 +40,11 @@ have access from 10:00 am.
       by visitors</li>
   </ul>
 </div>
-<!-- h3>Register</h3 -->
-<!-- form>
-  <label for="name">Organization name:</label>
-  <input type="text" placeholder="organization name" id="id_name" name="name" />
-  <br />
-  <label>Organization type:</label>
-  <select>
-    <option value="0"> - - Select one - - </option>
-    <option value="1">User group/club</option>
-    <option value="2">Company</option>
-    <option value="3">Sponsor</option>
-    <option value="4">Other</option>
-  </select>
-  <br />
-  <label for="numtables">Number of tables requested</label>
-  <input type="text" placeholder="num tables?" id="id_numtables" name="numtables" />
-  <input type="submit" value="Submit"></input>
-</form -->
+<h3>Register as a User Group</h3>
+<form class="exhibitor-form" id="exhibitor-form" name="exhibitor-form"
+      action="{% url exhibitors %}" method="POST">
+
+  {% include "_org_form.html" %}
+
+</form>
 {% endblock %}
