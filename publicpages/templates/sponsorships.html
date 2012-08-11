@@ -24,9 +24,9 @@ and we also accept other kinds of sponsorship (please see below).</p>
 <table class="sponsorship-levels">
 <tr><th>Sponsorship level</th><th>Minimum Amount</th></tr>
 <tr><td class="level">Platinum</td><td class="amount">$1,500</td></tr>
-<tr><td class="level">Gold</td>    <td class="amount">$750</li></tr>
-<tr><td class="level">Silver</td>  <td class="amount">$300</li></tr>
-<tr><td class="level">Bronze</td>  <td class="amount">$50</li></tr>
+<tr><td class="level">Gold</td>    <td class="amount">$750</td></tr>
+<tr><td class="level">Silver</td>  <td class="amount">$300</td></tr>
+<tr><td class="level">Bronze</td>  <td class="amount">$50</td></tr>
 </table>
 <p>We also accept sponsorships in the form of items needed to put
 on the event, such as supplying:
@@ -42,7 +42,7 @@ on the event, such as supplying:
 </ul>
 <h3>Register as a sponsor</h3>
 <form class="sponsor-form" id="sponsor-form" name="sponsor-form"
-      action="{% url sponsorships %}" method="POST">
+      action="{% url sponsorships %}" method="post">
   {% include "_org_form.html" %}
 </form>
 {% endblock %}
