@@ -32,7 +32,7 @@ div#navbar ul li div {
     vertical-align: middle;
 }
 
-div#navbar a:link, div#navbar a:visited, div#navbar a:active {
+div#navbar {
     color:  #00A;
 }
 
@@ -40,7 +40,7 @@ div#navbar a:link, div#navbar a:visited, div#navbar a:active {
     background-color: #915;
 }
 
-#navbar ul li div:hover a {
+#navbar ul li div:hover a, #navbar ul li div:hover {
     color: white;
 }
 

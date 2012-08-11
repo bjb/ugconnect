@@ -35,6 +35,14 @@ class OrganizationForm (forms.Form):
         '''reminder of how it's done'''
         return self.cleaned_data['name']
 
+    def clean_linkurl (self):
+        linkurl = self.cleaned_data['linkurl']
+
+        if not linkurl.startswith ('http'):
+            linkurl = 'http://' + linkurl
+
+        return linkurl
+
     def clean (self):
         '''reminder of how it's done'''
         return self.cleaned_data

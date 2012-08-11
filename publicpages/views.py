@@ -10,6 +10,16 @@ from osf import settings
 
 import datetime
 
+
+
+
+'''
+menustatus can be empty, inactive or selected
+
+inactive means this is not a menu item - never link
+active means this page is currently selected
+empty means this is a menu item, but not currently selected
+'''
 menustatus = {
     'news' : 'inactive',
     'sponsor' : '',
@@ -31,15 +41,11 @@ def index (request):
 
     clear_menustatus ()
 
-    #sponsors = Sponsor.objects.all ()
     sorted_sponsors = Sponsor.the_sponsors ()
-    #ugs = UserGroup.objects.all ()
 
     return render_to_response ('index.html',
                                {
-            #'sponsors' : sponsors,
             'sorted_sponsors' : sorted_sponsors,
-            #'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
             },
@@ -51,9 +57,7 @@ def sponsorships (request):
     clear_menustatus ()
     menustatus['sponsor'] = 'selected'
 
-    #sponsors = Sponsor.objects.all ()
     sorted_sponsors = Sponsor.the_sponsors ()
-    #ugs = UserGroup.objects.all ()
     extra_form_fields = '_sponsor_extra_fields.html'
 
     sf = None
@@ -71,8 +75,6 @@ def sponsorships (request):
                                        contactinfo = sf.cleaned_data['contactinfo'])
             if sf.cleaned_data['linkurl']:
                 theOrg.linkurl = sf.cleaned_data['linkurl']
-            #if sf.cleaned_data['graphicurl']:
-            #    theOrg.graphicurl = sf.cleaned_data['graphicurl']
             if sf.cleaned_data['comment']:
                 theOrg.comment = sf.cleaned_data['comment']
             if sf.cleaned_data['howhear']:
@@ -106,15 +108,11 @@ def whenwhere (request):
     clear_menustatus ()
     menustatus['whenwhere'] = 'selected'
 
-    #sponsors = Sponsor.objects.all ()
     sorted_sponsors = Sponsor.the_sponsors ()
-    #ugs = UserGroup.objects.all ()
 
     return render_to_response ('whenwhere.html',
                                {
-            #'sponsors' : sponsors,
             'sorted_sponsors' : sorted_sponsors,
-            #'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
             },
@@ -125,7 +123,6 @@ def exhibitors (request):
     clear_menustatus ()
     menustatus['exhibitor'] = 'selected'
 
-    #sponsors = Sponsor.objects.all ()
     sorted_sponsors = Sponsor.the_sponsors ()
     ugs = UserGroup.objects.filter (confirmed = True)
     extra_form_fields = '_exhibitor_extra_fields.html'
@@ -162,7 +159,6 @@ def exhibitors (request):
 
     return render_to_response ('exhibitors.html',
                                {
-            #'sponsors' : sponsors,
             'sorted_sponsors' : sorted_sponsors,
             'ugs' : ugs,
             'extra_form_fields' : extra_form_fields,
@@ -178,9 +174,7 @@ def contactus (request):
     clear_menustatus ()
     menustatus['contactus'] = 'selected'
 
-    #sponsors = Sponsor.objects.all ()
     sorted_sponsors = Sponsor.the_sponsors ()
-    #ugs = UserGroup.objects.all ()
 
     return render_to_response ('contactus.html',
                                {

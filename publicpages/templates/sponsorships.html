@@ -4,18 +4,18 @@
 {% block content %}
 <h2>Sponsorships</h2>
 <h3>List of confirmed sponsors</h3>
-<ul>
+<ul class="confirmed-sponsors">
   {% for ss in sorted_sponsors.0 %}
-  <li>{{ ss.organization.name }}</li>
+  <li><a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
   {% for ss in sorted_sponsors.1 %}
-  <li>{{ ss.organization.name }}</li>
+  <li><a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
   {% for ss in sorted_sponsors.2 %}
-  <li>{{ ss.organization.name }}</li>
+  <li><a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
   {% for ss in sorted_sponsors.3 %}
-  <li>{{ ss.organization.name }}</li>
+  <li><a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
 </ul>
 <h3>Levels</h3>

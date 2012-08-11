@@ -13,30 +13,30 @@
     </li>
     <li>
       <div class="{{ menustatus.sponsor }}">
-        <a href="{% url sponsorships %}">
+        {% ifnotequal menustatus.sponsor 'selected' %}<a href="{% url sponsorships %}">{% endifnotequal %}
           Sponsors
-        </a>
+        {% ifnotequal menustatus.sponsor 'selected' %}</a>{% endifnotequal %}
       </div>
     </li>
     <li>
       <div class="{{ menustatus.exhibitor }}">
-        <a href="{% url exhibitors %}">
+        {% ifnotequal menustatus.exhibitor 'selected' %}<a href="{% url exhibitors %}">{% endifnotequal %}
           User<br />Groups
-        </a>
+        {% ifnotequal menustatus.exhibitor 'selected' %}</a>{% endifnotequal %}
       </div>
     </li>
     <li>
       <div class="{{ menustatus.whenwhere }}">
-        <a href="{% url whenwhere %}">
+        {% ifnotequal menustatus.whenwhere 'selected' %}<a href="{% url whenwhere %}">{% endifnotequal %}
           Time<br />Place
-        </a>
+        {% ifnotequal menustatus.whenwhere 'selected' %}</a>{% endifnotequal %}
       </div>
     </li>
     <li>
       <div class="{{ menustatus.contactus }}">
-        <a href="{% url contactus %}">
+        {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
           Contact<br />Us
-        </a>
+        {% ifnotequal menustatus.contactus 'selected' %}</a>{% endifnotequal %}
       </div>
     </li>
   </ul>
