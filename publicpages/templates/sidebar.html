@@ -5,6 +5,7 @@
   <div class="platinum-div sponsor-div">
     <h3>Platinum</h3>
     <ul>
+      {% ifnotequal sorted_sponsors.0.count 0 %}
       {% for sponsor in sorted_sponsors.0 %}
       <li>
         <a href="http://{{ sponsor.organization.linkurl }}">
@@ -15,7 +16,9 @@
         </a>
       </li>
       {% endfor %}
-      <li></li>
+      {% else %}
+      <li>We need a platinum sponsor!</li>
+      {% endifnotequal %}
     </ul>
   </div>
   <div class="gold-div sponsor-div">
