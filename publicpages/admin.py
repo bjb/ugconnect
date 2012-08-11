@@ -10,10 +10,10 @@ class OrganizationAdmin (admin.ModelAdmin):
     pass
 
 class SponsorAdmin (admin.ModelAdmin):
-    pass
+    list_filter = ('confirmed',)
 
 class UserGroupAdmin (admin.ModelAdmin):
-    pass
+    list_filter = ('confirmed',)
 
 
 class PaymentAdmin (admin.ModelAdmin):
