@@ -1,7 +1,12 @@
 
 div#navbar {
-    height: 100%;
-    background-color: #CCF;
+    height: 50px;
+    background-color: #DDF;
+    font-weight:  700;
+}
+
+div#navbar a {
+    text-decoration:  none;
 }
 
 div#navbar ul {
@@ -14,29 +19,38 @@ div#navbar ul li {
     display: inline;
 }
 
-div#navbar li div {
+div#navbar ul, div#navbar ul li, div#navbar ul li div, div#navbar ul li div a {
+    height:  100%;
+}
+
+div#navbar ul li div {
     margin-left: 5px;
-    background-color: #AAF;  /* lavender */
-    width: 10em;
+    background-color: #CCF;
+    width: 120px;
     float: left;
     text-align: center;
+    vertical-align: middle;
 }
 
-div#navbar a:link {
-    color:  #915;  /* darkred */
+div#navbar {
+    color:  #00A;
 }
 
-div#navbar a:visited {
-    color:  black;
+#navbar ul li div:hover {
+    background-color: #915;
 }
 
-
-div#navbar a:active {
-    color: #00A;       /* darkblue */
+#navbar ul li div:hover a, #navbar ul li div:hover {
+    color: white;
 }
 
-div#navbar a:hover, #navbar ul li div:hover {
-    background-color: #A7F;  /* mauve */
+div#navbar ul li div.inactive {
+    background-color: #DDF;
+    color: #00A;
+}
+
+div#navbar ul li div.selected {
+    font-size: larger;
 }
 
 

@@ -5,15 +5,35 @@
   <div class="platinum-div sponsor-div">
     <h3>Platinum</h3>
     <ul>
+      {% ifnotequal sorted_sponsors.0.count 0 %}
+      {% for sponsor in sorted_sponsors.0 %}
       <li>
-        <img class="platinum" src="/osf-static/images/shopify_logo.png" alt="Shopify logo" />
-        <a href="http://www.shopify.ca">Shopify</a>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="platinum"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}"/>
+        </a>
       </li>
+      {% endfor %}
+      {% else %}
+      <li>We need a platinum sponsor!</li>
+      {% endifnotequal %}
     </ul>
   </div>
   <div class="gold-div sponsor-div">
     <h3>Gold</h3>
     <ul>
+      {% for sponsor in sorted_sponsors.1 %}
+      <li>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="gold"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}"/>
+        </a>
+      </li>
+      {% endfor %}
       <li>This spot is open!</li>
       <li>There are a couple of spots at this level.</li>
     </ul>
@@ -21,17 +41,33 @@
   <div class="silver-div sponsor-div">
     <h3>Silver</h3>
     <ul>
+      {% for sponsor in sorted_sponsors.2 %}
       <li>
-        <img class="silver" src="/osf-static/images/arrow-eye-cropped.jpg" alt="arrow-eye logo" />
-        <a href="http://www.arrow-eye.com/">
-          Arrow-Eye Consulting
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="silver"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}" />
         </a>
       </li>
+      {% endfor %}
+      <li>This spot is open!</li>
+      <li>There are a few spots at this level.</li>
     </ul>
   </div>
   <div class="bronze-div sponsor-div">
     <h3>Bronze</h3>
     <ul>
+      {% for sponsor in sorted_sponsors.3 %}
+      <li>
+        <a href="http://{{ sponsor.organization.linkurl }}">
+          <img class="bronze"
+               src="{{ settings.STATIC_URL }}{{ sponsor.organization.graphicurl }}"
+               alt="{{ sponsor.organization.name }}"
+               title="{{ sponsor.organization.name }}" />
+        </a>
+      </li>
+      {% endfor %}
       <li>This spot is open!</li>
       <li>There are several spots at this level.</li>
     </ul>

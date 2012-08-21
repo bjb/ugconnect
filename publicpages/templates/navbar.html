@@ -4,10 +4,41 @@
     Here is the default menu:
   </p -->
   <ul>
-    <li><a href="/publicpages/new/"><div>News</div></a></li>
-    <li><a href="{% url sponsorships %}"><div>Sponsorships</div></a></li>
-    <li><a href="{% url exhibitors %}"><div>User Groups</div></a></li>
-    <li><a href="{% url whenwhere %}"><div>Place and Time</div></a></li>
+    <li>
+      <!-- a href="/publicpages/new/" -->
+        <div class="{{ menustatus.news }}">
+          News
+        </div>
+      <!-- /a -->
+    </li>
+    <li>
+      <div class="{{ menustatus.sponsor }}">
+        {% ifnotequal menustatus.sponsor 'selected' %}<a href="{% url sponsorships %}">{% endifnotequal %}
+          Sponsors
+        {% ifnotequal menustatus.sponsor 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
+    <li>
+      <div class="{{ menustatus.exhibitor }}">
+        {% ifnotequal menustatus.exhibitor 'selected' %}<a href="{% url exhibitors %}">{% endifnotequal %}
+          User<br />Groups
+        {% ifnotequal menustatus.exhibitor 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
+    <li>
+      <div class="{{ menustatus.whenwhere }}">
+        {% ifnotequal menustatus.whenwhere 'selected' %}<a href="{% url whenwhere %}">{% endifnotequal %}
+          Time<br />Place
+        {% ifnotequal menustatus.whenwhere 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
+    <li>
+      <div class="{{ menustatus.contactus }}">
+        {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
+          Contact<br />Us
+        {% ifnotequal menustatus.contactus 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
   </ul>
   <div class="clearfloat"></div>
 </div>

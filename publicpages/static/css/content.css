@@ -12,3 +12,22 @@
 #content {
     width: 63%;
 }
+
+
+.map {
+    margin: 0 0 20px 0;
+}
+
+
+table.sponsorship-levels {
+    border-spacing:  2em 0;
+    /* border-collapse: collapse; */
+}
+
+table.sponsorship-levels td.level {
+    text-align: center;
+}
+
+table.sponsorship-levels td.amount {
+    text-align: right;
+}

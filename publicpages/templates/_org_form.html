@@ -1,0 +1,41 @@
+  {% csrf_token %}
+  <p>{{ message }}</p>
+  {{ form.non_field_errors }}
+
+  <div class="field name">
+    {{ form.name.errors }}
+    {{ form.name.label_tag }}
+    {{ form.name }}
+  </div>
+  <div class="field contactname">
+    {{ form.contactname.errors }}
+    {{ form.contactname.label_tag }}
+    {{ form.contactname }}
+  </div>
+  <div class="field contactinfo">
+    {{ form.contactinfo.errors }}
+    {{ form.contactinfo.label_tag }}
+    {{ form.contactinfo }}
+  </div>
+  {% include extra_form_fields %}
+  <div class="field linkurl">
+    {{ form.linkurl.errors }}
+    {{ form.linkurl.label_tag }}
+    {{ form.linkurl }}
+  </div>
+  <div class="field comment">
+    {{ form.comment.errors }}
+    {{ form.comment.label_tag }}
+    {{ form.comment }}
+  </div>
+  <div class="field howhear">
+    {{ form.howhear.errors }}
+    {{ form.howhear.label_tag }}
+    {{ form.howhear }}
+  </div>
+  <div class="field captcha">
+    {{ form.captcha.errors }}
+    {{ form.captcha.label_tag }}
+    {{ form.captcha }}
+  </div>
+  <input type="submit" value="Submit"></input>
