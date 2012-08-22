@@ -1,4 +1,8 @@
 
+div#header img {
+    margin: auto;
+    display: block;
+}
 
 div#header h1 {
     color:  #00A;
