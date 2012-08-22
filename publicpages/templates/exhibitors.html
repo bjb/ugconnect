@@ -23,7 +23,7 @@ have access from 10:00 am.
 <h3>List of confirmed user groups</h3>
 <ul class="confirmed-usergroups">
   {% for ug in ugs %}
-  <li>{{ ug.organization.name }}</li>
+  <li><img src="{{ settings.STATIC_URL }}{{ ug.organization.graphicurl }}" alt="ug logo" />  {{ ug.organization.name }}</li>
   {% endfor %}
 </ul>
 <h3>Suggestions for what to present</h3>
