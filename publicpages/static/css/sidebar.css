@@ -12,13 +12,23 @@
     text-align: right;
 }
 
-
 .sidebar h2 {
-   background-color: #CCF;
+/*
+  background-color: #CCF;
+*/
+    color: #00A;
+    text-align: center;
 }
 
 .sidebar .sponsor-div h3 {
-   background-color: #DDF;
+   /* background-color: #DDF; */
+   color:  #00A;
+   text-align: center;
+}
+
+.sidebar #attention {
+    color: #903;
+    background-color: #FF0;
 }
 
 .sidebar h1,
@@ -42,11 +52,16 @@
 
 
 img.platinum {
-    height: 55px;
+    max-height: 55px;
 }
 
 img.gold, img.silver, img.bronze {
-    height: 40px;
+    max-height: 40px;
+}
+
+hr {
+    height: 3px;
+    background-color:  #00A;
 }
 
 
@@ -57,3 +72,8 @@ img.gold, img.silver, img.bronze {
     overflow: hidden;
 }
 */
+
+
+ul.confirmed-sponsors img {
+    max-height:  25px;
+}
