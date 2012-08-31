@@ -65,9 +65,10 @@ def theme_post (request, view_name, themeName, up, upf):
             themeName = upf.cleaned_data['theme'] or 'default'
             request.session['theme'] = themeName
             # save the user's theme
-            up = request.user.get_profile ()
-            up.theme = Theme.objects.get (name = themeName)
-            up.save ()
+            if not request.user.is_anonymous ():
+                up = request.user.get_profile ()
+                up.theme = Theme.objects.get (name = themeName)
+                up.save ()
             logging.info ('themeName from form is %s' % themeName)
 
     return ( themeName, up, upf)
