@@ -1,4 +1,4 @@
-from publicpages.models import Organization, Sponsor, UserGroup, Payment
+from publicpages.models import Organization, Sponsor, UserGroup, Payment, Theme, UserProfile
 from django.contrib import admin
 
 
@@ -19,9 +19,17 @@ class UserGroupAdmin (admin.ModelAdmin):
 class PaymentAdmin (admin.ModelAdmin):
     pass
 
+class ThemeAdmin (admin.ModelAdmin):
+    pass
+
+class UserProfileAdmin (admin.ModelAdmin):
+    pass
+
 
 admin.site.register (Organization, OrganizationAdmin)
 admin.site.register (Sponsor, SponsorAdmin)
 admin.site.register (UserGroup, UserGroupAdmin)
 admin.site.register (Payment, PaymentAdmin)
+admin.site.register (Theme, ThemeAdmin)
+admin.site.register (UserProfile, UserProfileAdmin)
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Organization(models.Model):
     name = models.CharField (max_length = 64)
@@ -75,6 +76,33 @@ class UserGroup (models.Model):
 
     def __repr__(self):
         return self.organization.name
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__()
+
+
+class Theme (models.Model):
+    '''
+    Some info about the theme
+    '''
+    name = models.CharField (max_length = 32)
+    headergraphic = models.CharField (max_length = 256, null = True, blank = True)
+    bullet = models.CharField (max_length = 256, null = True, blank = True)
+    favicon = models.CharField (max_length = 256, null = True, blank = True)
+
+    def __repr__(self):
+        return self.name
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__ ()
+
+
+class UserProfile (models.Model):
+    user = models.ForeignKey (User, unique = True)
+    theme = models.ForeignKey (Theme, null = True, blank = True)
+
+    def __repr__(self):
+        return self.user.username
 
     def __unicode__(self):
         return u'%s' % self.__repr__()
