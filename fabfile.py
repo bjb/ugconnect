@@ -7,12 +7,14 @@ from fabric.context_managers import cd, prefix, settings
 import os.path
 import sys
 
-VIRTUALENVDIR = '/usr/local/pythonenv'
-VIRTUALENV = 'OSF'
-ACTIVATE_SCRIPT = os.path.join (VIRTUALENVDIR, VIRTUALENV, 'bin/activate')
 PROJECT = 'osf-2012'
 DB_NAME = 'osf'
 DB_USER_NAME = 'osf'
+
+# on remote machine
+VIRTUALENVDIR = '/usr/local/pythonenv'
+VIRTUALENV = 'OSF'
+ACTIVATE_SCRIPT = os.path.join (VIRTUALENVDIR, VIRTUALENV, 'bin/activate')
 PROJECT_LOCATION = '/srv/django'
 PROJECT_ROOT = os.path.join (PROJECT_LOCATION, PROJECT)
 WSGI_FILE = 'osf/django.wsgi'
@@ -179,6 +181,8 @@ def deploy_version (version_id):
         with prefix ('source %s' % ACTIVATE_SCRIPT):
             sudo ('chown bjb.www-data static')
             sudo ('chmod 2775 static')
+            # sudo ('cp %s/settings.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
+            # sudo ('cp %s/wsgi.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
             run ('./manage.py syncdb --settings=osf.settings')
             run ('./manage.py migrate --settings=osf.settings')
             run ('./manage.py collectstatic --settings=osf.settings')
