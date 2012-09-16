@@ -1,12 +1,5 @@
 {% load i18n %}
 <div id="header">
-  <div>
-    <form action="" method="post">
-      {% csrf_token %}
-      {{ upf }}
-      <input type="submit" name="Submit" id="submit_id" />
-    </form>
-  </div>
   <a href="{% url index %}"><img src="{{ settings.STATIC_URL }}{{ theme.headergraphic }}" alt="logo" /></a>
   <!-- h1>
     <a href="{% url index %}">
