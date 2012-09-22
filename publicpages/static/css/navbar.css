@@ -1,7 +1,7 @@
 
 div#navbar {
     height: 50px;
-    background-color: #DDF;
+    background-color: #9BD4FF;
     font-weight:  700;
 }
 
@@ -25,7 +25,7 @@ div#navbar ul, div#navbar ul li, div#navbar ul li div, div#navbar ul li div a {
 
 div#navbar ul li div {
     margin-left: 5px;
-    background-color: #CCF;
+    background-color: #79B8E4;
     width: 120px;
     float: left;
     text-align: center;
@@ -37,7 +37,7 @@ div#navbar {
 }
 
 #navbar ul li div:hover {
-    background-color: #915;
+    background-color: #4489BF;
 }
 
 #navbar ul li div:hover a, #navbar ul li div:hover {
@@ -45,7 +45,7 @@ div#navbar {
 }
 
 div#navbar ul li div.inactive {
-    background-color: #DDF;
+    background-color: #79B8E4;
     color: #00A;
 }
 

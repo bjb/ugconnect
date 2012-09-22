@@ -14,15 +14,15 @@
 
 .sidebar h2 {
 /*
-  background-color: #CCF;
+  background-color: #67B0E4;
 */
-    color: #00A;
+    color: #4489BF;
     text-align: center;
 }
 
 .sidebar .sponsor-div h3 {
-   /* background-color: #DDF; */
-   color:  #00A;
+   /* background-color: #9BD4FF; */
+   color:  #4489BF;
    text-align: center;
 }
 
@@ -39,6 +39,7 @@
 .sidebar div.sponsor-div h3,
 .sidebar div.sponsor-div h4 {
     text-align: center;
+    color: #4489BF;
 }
 
 .sidebar ul {
@@ -46,8 +47,9 @@
     padding: 0;
 }
 
-.sidebar li {
+.sidebar ul li {
     list-style: none none;
+    background-image: none;
 }
 
 
@@ -61,7 +63,7 @@ img.gold, img.silver, img.bronze {
 
 hr {
     height: 3px;
-    background-color:  #00A;
+    background-color:  #4489BF;
 }
 
 

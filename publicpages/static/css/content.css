@@ -22,7 +22,17 @@
 table.sponsorship-levels {
     border-spacing:  2em 0;
     /* border-collapse: collapse; */
+    border:  solid 1px #888888;
 }
+
+table.sponsorship-levels tr.heading {
+    border-bottom:  solid 1px #888888;
+}
+/*
+table.sponsorship-levels td {
+    width:  140px;
+}
+*/
 
 table.sponsorship-levels td.level {
     text-align: center;
@@ -31,3 +41,29 @@ table.sponsorship-levels td.level {
 table.sponsorship-levels td.amount {
     text-align: right;
 }
+
+
+li {
+    list-style-type: none;
+    background-image:  url(../images/bullet-2.png);
+    background-repeat:  no-repeat;
+    background-position: 0 3px;
+    padding-left:  20px;
+}
+
+
+
+
+dt {
+    font-weight: 800;
+    float: left;
+    width:  5em;
+    height:  3em;
+}
+
+dd {
+    margin: 0;
+    padding-left:  5px;
+    height:  3em;
+}
+
