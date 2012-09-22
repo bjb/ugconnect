@@ -18,7 +18,8 @@ ACTIVATE_SCRIPT = os.path.join (VIRTUALENVDIR, VIRTUALENV, 'bin/activate')
 PROJECT_LOCATION = '/srv/UGC'
 PROJECT_ROOT = os.path.join (PROJECT_LOCATION, PROJECT)
 WSGI_FILE = 'osf/django.wsgi'
-REPOSITORY = 'ssh://sourcerer.ca:322/home/bjb/projects/osw/2012/web/osf'
+#REPOSITORY = 'ssh://blueeyes.stuffed.animals/home/bjb/projects/osw/2012/web/osf'
+REPOSITORY = '/home/bjb/projects/osw/2012/web/osf'
 
 def host_type ():
     run ('uname -a')
