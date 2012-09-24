@@ -43,7 +43,7 @@ table.sponsorship-levels td.amount {
 }
 
 
-li {
+#content li {
     list-style-type: none;
     background-image:  url(../images/bullet-4.png);
     background-repeat:  no-repeat;
