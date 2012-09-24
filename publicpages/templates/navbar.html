@@ -5,6 +5,13 @@
   </p -->
   <ul>
     <li>
+      <div class="{{ menustatus.home }}">
+        {% ifnotequal menustatus.home 'selected' %}<a href="{% url index %}">{% endifnotequal %}
+          Home
+        {% ifnotequal menustatus.home 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
+    <li>
       <!-- a href="/publicpages/new/" -->
         <div class="{{ menustatus.news }}">
           News
