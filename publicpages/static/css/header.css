@@ -2,6 +2,7 @@
 div#header img {
     margin: auto;
     display: block;
+    border: 0px solid black;
 }
 
 div#header h1 {
