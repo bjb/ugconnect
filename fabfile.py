@@ -148,7 +148,8 @@ def make_user_upload_dir ():
     with settings (warn_only = True):
         with cd (PROJECT_LOCATION):
             sudo ('mkdir media')
-            sudo ('chmod 2755 media')
+            sudo ('chown bjb.www-data media')
+            sudo ('chmod 2775 media')
 
 
 def restart ():
