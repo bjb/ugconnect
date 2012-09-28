@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from osf.settings import MEDIA_ROOT
 
 class Organization(models.Model):
     name = models.CharField (max_length = 64)
@@ -10,6 +11,7 @@ class Organization(models.Model):
     howhear = models.TextField (null = True, blank = True)
     # graphic = models.FileField ()
     graphicurl = models.TextField (default = 'images/unknown.png', null = True, blank = True)
+    logo = models.ImageField (upload_to = 'images', default = 'unknown.png')
 
 
     def __repr__(self):

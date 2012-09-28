@@ -6,16 +6,16 @@
 <h3>List of confirmed sponsors</h3>
 <ul class="confirmed-sponsors">
   {% for ss in sorted_sponsors.0 %}
-  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ settings.STATIC_URL }}{{ ss.organization.graphicurl }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
+  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ ss.organization.logo.url }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
   {% for ss in sorted_sponsors.1 %}
-  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ settings.STATIC_URL }}{{ ss.organization.graphicurl }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
+  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ ss.organization.logo.url }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
   {% for ss in sorted_sponsors.2 %}
-  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ settings.STATIC_URL }}{{ ss.organization.graphicurl }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
+  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ ss.organization.logo.url }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
   {% for ss in sorted_sponsors.3 %}
-  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ settings.STATIC_URL }}{{ ss.organization.graphicurl }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
+  <li><a href="{{ ss.organization.linkurl }}"><img src="{{ settings.MEDIA_URL }}{{ ss.organization.logo.url }}" alt="sponsor logo" /></a> <a href="{{ ss.organization.linkurl }}">{{ ss.organization.name }}</a></li>
   {% endfor %}
 </ul>
 <h3>Levels</h3>

@@ -51,12 +51,22 @@ def wipe_virtualenv ():
     # don't bother to uninstall the following
     #sudo ('apt-get install python-dev libpq-dev')
 
+def wipe_user_upload_dir ():
+    '''
+    Wipe out the user upload directory
+    '''
+    with settings (warn_only = True):
+        with cd (PROJECT_LOCATION):
+            sudo ('rmdir media')
+
+
 def wipe_all ():
     '''
     remove all traces of the deployment from the target machine
     '''
     wipe_code ()
     wipe_db ()
+    wipe_user_upload_dir ()
     wipe_virtualenv ()
 
 
@@ -131,6 +141,15 @@ def db ():
     sys.stdout.write ('WARNING!  still need to integrate into apache configs\n')
     sys.stdout.write ('WARNING!  do I need to adjust file perms after pip install?')
 
+def make_user_upload_dir ():
+    '''
+    Create the user upload directory
+    '''
+    with settings (warn_only = True):
+        with cd (PROJECT_LOCATION):
+            sudo ('mkdir media')
+            sudo ('chmod 2755 media')
+
 
 def restart ():
     '''
@@ -157,6 +176,7 @@ def new_deployment ():
     '''
     virtualenv ()
     db ()
+    make_user_upload_dir ()
     restart ()
 
 
