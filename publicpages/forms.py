@@ -24,10 +24,6 @@ class OrganizationForm (forms.Form):
     howhear = forms.CharField (label = 'How did you hear about us?  ',
                                widget = forms.Textarea (attrs = {'cols' : 60, 'rows' : 6 }),
                                required = False)
-    graphicurl = forms.URLField (label = 'Icon for us to display:  ',
-                                 widget = forms.TextInput (attrs={"size" : "64"}),
-                                 max_length = 128, # initial = 'images/unknown.png',
-                                 required = False)
     captcha = CaptchaField ()
 
 
