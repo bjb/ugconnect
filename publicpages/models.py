@@ -9,8 +9,6 @@ class Organization(models.Model):
     linkurl = models.CharField (max_length = 128, null = True, blank = True)
     comment = models.TextField (null = True, blank = True)
     howhear = models.TextField (null = True, blank = True)
-    # graphic = models.FileField ()
-    graphicurl = models.TextField (default = 'images/unknown.png', null = True, blank = True)
     logo = models.ImageField (upload_to = 'images', default = 'unknown.png')
 
 
