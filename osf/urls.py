@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+#from django.http import HttpResponse
 from captcha import urls as captcha_urls
 from osf import settings
 
@@ -19,8 +20,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-    # Uncomment the next line to enable the admin:
+    # captchas
     url(r'^captcha/', include(captcha_urls)),
+
+#    # favicon
+#    url (r'^favicon.ico', HttpResponse ( ... what?! ..., content_type="image/x-icon")),
 )
 
 
