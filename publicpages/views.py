@@ -36,7 +36,7 @@ def clear_menustatus ():
     menustatus['news'] = 'inactive'
 
 def theme_init (request):
-    themeName = 'UGC2012_triangle'
+    themeName = 'UGC2013_triangle'
     theme = Theme.objects.get (name = themeName)
 
     return (themeName)
@@ -207,6 +207,52 @@ def contactus (request):
             #'ugs' : ugs,
             'settings' : settings,
             'menustatus' : menustatus,
+            'theme' : theme,
+            },
+                               context_instance = RequestContext (request))
+
+
+
+def custom_403_view(request):
+    (themeName) = theme_init (request)
+    clear_menustatus ()
+    menustatus['contactus'] = 'selected'
+
+    theme = Theme.objects.get (name = themeName)
+
+    return render_to_response ('403.html',
+                               {
+            'settings' : settings,
+            'theme' : theme,
+            },
+                               context_instance = RequestContext (request))
+
+
+def custom_404_view(request):
+    (themeName) = theme_init (request)
+    clear_menustatus ()
+    menustatus['contactus'] = 'selected'
+
+    theme = Theme.objects.get (name = themeName)
+
+    return render_to_response ('404.html',
+                               {
+            'settings' : settings,
+            'theme' : theme,
+            },
+                               context_instance = RequestContext (request))
+
+
+def custom_500_view(request):
+    (themeName) = theme_init (request)
+    clear_menustatus ()
+    menustatus['contactus'] = 'selected'
+
+    theme = Theme.objects.get (name = themeName)
+
+    return render_to_response ('500.html',
+                               {
+            'settings' : settings,
             'theme' : theme,
             },
                                context_instance = RequestContext (request))

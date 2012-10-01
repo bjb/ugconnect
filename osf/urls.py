@@ -4,6 +4,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from captcha import urls as captcha_urls
 from osf import settings
 
+import os
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -37,4 +39,16 @@ if settings.DEBUG:
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
-   )
+    )
+
+
+    urlpatterns += patterns('',
+        url(r'^osf-static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': os.path.join (settings.PROJECTROOT, 'osf-static'),
+        }),
+    )
+
+
+handler403 = 'publicpages.views.custom_403_view'
+handler404 = 'publicpages.views.custom_404_view'
+handler500 = 'publicpages.views.custom_500_view'
