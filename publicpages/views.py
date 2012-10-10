@@ -285,6 +285,8 @@ def bzflag (request):
             'match2' : match2,
             'match3' : match3,
             'match4' : match4,
+            },
+                               context_instance = RequestContext (request))
 
 def custom_403_view(request):
     (themeName) = theme_init (request)
