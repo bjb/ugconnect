@@ -12,13 +12,6 @@
       </div>
     </li>
     <li>
-      <!-- a href="/publicpages/new/" -->
-        <div class="{{ menustatus.news }}">
-          News
-        </div>
-      <!-- /a -->
-    </li>
-    <li>
       <div class="{{ menustatus.sponsor }}">
         {% ifnotequal menustatus.sponsor 'selected' %}<a href="{% url sponsorships %}">{% endifnotequal %}
           Sponsors
@@ -44,6 +37,13 @@
         {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
           Contact<br />Us
         {% ifnotequal menustatus.contactus 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
+    <li>
+      <div class="{{ menustatus.bzflag }}">
+        {% ifnotequal menustatus.bzflag 'selected' %}<a href="{% url bzflag %}">{% endifnotequal %}
+          bzflag<br />Tournament
+        {% ifnotequal menustatus.bzflag 'selected' %}</a>{% endifnotequal %}
       </div>
     </li>
   </ul>

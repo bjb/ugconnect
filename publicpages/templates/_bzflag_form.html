@@ -1,0 +1,64 @@
+  {% csrf_token %}
+  <p>{{ message }}</p>
+  {{ form.non_field_errors }}
+
+  <div class="field teamname">
+    {{ form.teamname.errors }}
+    {{ form.teamname.label_tag }}
+    {{ form.teamname }}
+  </div>
+
+  <div class="field captain">
+    {{ form.captain.errors }}
+    {{ form.captain.label_tag }}
+    {{ form.captain }}
+  </div>
+
+  <div class="field navigator">
+    {{ form.navigator.errors }}
+    {{ form.navigator.label_tag }}
+    {{ form.navigator }}
+  </div>
+
+  <div class="field weapons_specialist">
+    {{ form.weapons_specialist.errors }}
+    {{ form.weapons_specialist.label_tag }}
+    {{ form.weapons_specialist }}
+  </div>
+
+  <div class="field padre">
+    {{ form.padre.errors }}
+    {{ form.padre.label_tag }}
+    {{ form.padre }}
+  </div>
+
+  <div class="field contactinfo">
+    {{ form.contactinfo.errors }}
+    {{ form.contactinfo.label_tag }}
+    {{ form.contactinfo }}
+  </div>
+
+  {% if user.is_staff %}
+  <!-- if this user is an admin:  allow them to enter/adjust score, approve icon -->
+  <div class="field icon">
+    {{ form.icon.errors }}
+    {{ form.icon.label_tag }}
+    {{ form.icon }}
+  </div>
+
+  <div class="field icon_approved">
+    {{ form.icon_approved.errors }}
+    {{ form.icon_approved.label_tag }}
+    {{ form.icon_approved }}
+  </div>
+  <div class="field score">
+    {{ form.score.errors }}
+    {{ form.score.label_tag }}
+    {{ form.score }}
+  </div>
+  {% endif %}
+
+  <input type="submit" value="Submit" />
+
+
+

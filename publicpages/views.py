@@ -4,8 +4,8 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import decorators    # for decorators.login_required
 from django.contrib.auth import models  # for models.User
 
-from publicpages.models import Sponsor, UserGroup, Organization, Theme
-from publicpages.forms import SponsorForm, UserGroupForm, UserProfileForm
+from publicpages.models import Sponsor, UserGroup, Organization, Theme, BzflagTeam
+from publicpages.forms import SponsorForm, UserGroupForm, UserProfileForm, BzflagTeamForm
 from osf import settings
 
 import datetime
@@ -208,5 +208,82 @@ def contactus (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
+            },
+                               context_instance = RequestContext (request))
+
+
+def bzflag (request):
+
+    (themeName) = theme_init (request)
+    clear_menustatus ()
+    menustatus['bzflag'] = 'selected'
+
+    sorted_sponsors = Sponsor.the_sponsors ()
+    teams = BzflagTeam.objects.all()
+    bftf = None
+
+    match1 = []
+    match2 = []
+    match3 = []
+    match4 = []
+
+    match1_teams = [1, 2,  9, 13]
+    match2_teams = [3, 4, 10, 14]
+    match3_teams = [5, 6, 11, 15]
+    match4_teams = [7, 8, 12, 16]
+
+    count = 0
+    for team in teams:
+        count += 1
+
+        if count in match1_teams:
+            match1.append (team)
+        if count in match2_teams:
+            match2.append (team)
+        if count in match3_teams:
+            match3.append (team)
+        if count in match4_teams:
+            match4.append (team)
+
+    message = ''
+
+    if 'POST' == request.method:
+        bztf = BzflagTeamForm (request.POST)
+        if bztf.is_valid ():
+            # do this in two stages to get the new team object.
+            team = bztf.save ( commit = False)
+            team.save ()
+
+            message += 'team %s saved' % bztf.cleaned_data['teamname']
+            # clear the form
+            bztf = BzflagTeamForm ()
+            # add the new team to the appropriate match
+            whichmatch = teams.count () + 1
+            if whichmatch in match1_teams:
+                match1.append (team)
+            if whichmatch in match2_teams:
+                match2.append (team)
+            if whichmatch in match3_teams:
+                match3.append (team)
+            if whichmatch in match4_teams:
+                match4.append (team)
+            
+    else:
+        bztf = BzflagTeamForm ()
+
+    theme = Theme.objects.get (name = themeName)
+
+    return render_to_response ('bzflag.html',
+                               {
+            'sorted_sponsors' : sorted_sponsors,
+            'settings' : settings,
+            'menustatus' : menustatus,
+            'theme' : theme,
+            'form' : bztf,
+            'message' : message,
+            'match1' : match1,
+            'match2' : match2,
+            'match3' : match3,
+            'match4' : match4,
             },
                                context_instance = RequestContext (request))

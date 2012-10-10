@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}User Group Connect{% endblock %}
+{% block content %}
+<h2>bzflag tournament</h2>
+<p>
+  Indulge your inner nerd, and challenge your friends to a bzflag tournament.
+</p>
+<p>
+  We can facilitate a two-round tournament with up to sixteen teams, with up to four members per team.  There will be up to four teams per match.  Highest score wins the match.
+</p>
+<p>
+  Sign up here!
+</p>
+<h3>Results</h3>
+<h4>Round 1/preliminaries</h4>
+<h5>Match 1</h5>
+<ul>
+  {% for team in match1 %}
+  <li>{{ team }}</li>
+  {% endfor %}
+</ul>
+<h5>Match 2</h5>
+<ul>
+  {% for team in match2 %}
+  <li>{{ team }}</li>
+  {% endfor %}
+</ul>
+
+<h5>Match 3</h5>
+<ul>
+  {% for team in match3 %}
+  <li>{{ team }}</li>
+  {% endfor %}
+</ul>
+
+<h5>Match 4</h5>
+<ul>
+  {% for team in match4 %}
+  <li>{{ team }}</li>
+  {% endfor %}
+</ul>
+
+<h4>Round 2/finals</h4>
+<h3>Registration</h3>
+<form class="bzflag-form" id="bzflag-form" name="bzflag-form"
+      action="{% url bzflag %}" method="post">
+  {% include "_bzflag_form.html" %}
+</form>
+{% endblock %}

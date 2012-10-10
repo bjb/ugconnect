@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from captcha.fields import CaptchaField
-from publicpages.models import Organization, UserGroup, Sponsor, Theme, UserProfile, SPONSORCHOICES
+from publicpages.models import Organization, UserGroup, Sponsor, Theme, UserProfile, BzflagTeam, SPONSORCHOICES
 from django.contrib.auth.models import User
 
 
@@ -78,3 +78,37 @@ class UserProfileForm (forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('theme',)
+
+
+class BzflagTeamForm (forms.ModelForm):
+    class Meta:
+        model = BzflagTeam
+        fields = ('teamname', 'captain', 'navigator', 'weapons_specialist', 'padre', 'contactinfo', 'icon', 'icon_approved', 'score')
+
+    def clean_teamname (self):
+        '''
+        no duplicate team names
+        '''
+        cleaned_data = super (BzflagTeamForm, self).clean ()
+        tn = cleaned_data.get ('teamname')
+        qs = BzflagTeam.objects.filter (teamname__exact = tn)
+
+        if qs.count ():
+            raise forms.ValidationError ('Sorry!  Teamname %s already exists; choose another' % self.cleaned_data['teamname'])
+
+        return tn
+
+
+    def clean (self):
+        '''
+        max 16 teams
+        '''
+        cleaned_data = super (BzflagTeamForm, self).clean ()
+        qs = BzflagTeam.objects.all ()
+
+        if 16 <= qs.count ():
+            raise forms.ValidationError ('Sorry!  Tournament is fully subscribed.  Only 16 teams allowed!')
+
+        return cleaned_data
+
+

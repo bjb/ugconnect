@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from osf import settings
+
 class Organization(models.Model):
     name = models.CharField (max_length = 64)
     contactname = models.CharField (max_length = 64)
@@ -103,6 +105,40 @@ class UserProfile (models.Model):
 
     def __repr__(self):
         return self.user.username
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__()
+
+
+
+class BzflagTeam (models.Model):
+    '''
+    bzflag team info
+    '''
+    teamname = models.CharField (max_length = 32)
+
+    captain = models.CharField (max_length = 64)
+
+    navigator = models.CharField (max_length = 64,
+                                  blank = True, null = True)
+
+    weapons_specialist = models.CharField (max_length = 64,
+                                           blank = True, null = True)
+
+    padre = models.CharField (max_length = 64,
+                              blank = True, null = True)
+
+    contactinfo = models.CharField (max_length = 128)
+
+    icon = models.ImageField (upload_to = settings.MEDIA_ROOT,
+                              default = 'images/default_bzflag_icon.png')
+
+    icon_approved = models.BooleanField (default = False)
+
+    score = models.IntegerField (default = 0)
+    
+    def __repr__(self):
+        return self.teamname
 
     def __unicode__(self):
         return u'%s' % self.__repr__()
