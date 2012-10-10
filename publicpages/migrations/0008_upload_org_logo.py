@@ -56,6 +56,19 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        'publicpages.bzflagteam': {
+            'Meta': {'object_name': 'BzflagTeam'},
+            'captain': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
+            'contactinfo': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+            'icon': ('django.db.models.fields.files.ImageField', [], {'default': "'images/default_bzflag_icon.png'", 'max_length': '100'}),
+            'icon_approved': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'navigator': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'}),
+            'padre': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'}),
+            'score': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            'teamname': ('django.db.models.fields.CharField', [], {'max_length': '32'}),
+            'weapons_specialist': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'})
+        },
         'publicpages.organization': {
             'Meta': {'object_name': 'Organization'},
             'comment': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
