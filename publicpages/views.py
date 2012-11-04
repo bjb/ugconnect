@@ -36,7 +36,7 @@ def clear_menustatus ():
     menustatus['news'] = 'inactive'
 
 def theme_init (request):
-    themeName = 'UGC2013_triangle'
+    themeName = 'UGC2013_triangle_whitebg'
     theme = Theme.objects.get (name = themeName)
 
     return (themeName)
@@ -233,17 +233,18 @@ def bzflag (request):
     match4_teams = [7, 8, 12, 16]
 
     count = 0
-    for team in teams:
-        count += 1
+    if ( 0 < len (teams) ):
+        for team in teams:
+            count += 1
 
-        if count in match1_teams:
-            match1.append (team)
-        if count in match2_teams:
-            match2.append (team)
-        if count in match3_teams:
-            match3.append (team)
-        if count in match4_teams:
-            match4.append (team)
+            if count in match1_teams:
+                match1.append (team)
+            if count in match2_teams:
+                match2.append (team)
+            if count in match3_teams:
+                match3.append (team)
+            if count in match4_teams:
+                match4.append (team)
 
     message = ''
 
