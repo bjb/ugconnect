@@ -8,7 +8,7 @@
       {% ifnotequal sorted_sponsors.0.count 0 %}
       {% for sponsor in sorted_sponsors.0 %}
       <li>
-        <a href="http://{{ sponsor.organization.linkurl }}">
+        <a href="{{ sponsor.organization.linkurl }}">
           <img class="platinum"
                src="{{ sponsor.organization.logo.url }}"
                alt="{{ sponsor.organization.name }}"
@@ -27,7 +27,7 @@
     <ul>
       {% for sponsor in sorted_sponsors.1 %}
       <li>
-        <a href="http://{{ sponsor.organization.linkurl }}">
+        <a href="{{ sponsor.organization.linkurl }}">
           <img class="gold"
                src="{{ sponsor.organization.logo.url }}"
                alt="{{ sponsor.organization.name }}"
@@ -45,7 +45,7 @@
     <ul>
       {% for sponsor in sorted_sponsors.2 %}
       <li>
-        <a href="http://{{ sponsor.organization.linkurl }}">
+        <a href="{{ sponsor.organization.linkurl }}">
           <img class="silver"
                src="{{ sponsor.organization.logo.url }}"
                alt="{{ sponsor.organization.name }}"
@@ -63,7 +63,7 @@
     <ul>
       {% for sponsor in sorted_sponsors.3 %}
       <li>
-        <a href="http://{{ sponsor.organization.linkurl }}">
+        <a href="{{ sponsor.organization.linkurl }}">
           <img class="bronze"
                src="{{ sponsor.organization.logo.url }}"
                alt="{{ sponsor.organization.name }}"

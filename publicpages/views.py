@@ -57,6 +57,7 @@ def index (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
+            'subtitle' : 'Home Page'
             },
                                context_instance = RequestContext (request))
 
@@ -113,6 +114,7 @@ def sponsorships (request):
             'form' : sf,
             'message' : message,
             'theme' : theme,
+            'subtitle' : 'Sponsorships'
             },
                                context_instance = RequestContext (request))
 
@@ -132,6 +134,7 @@ def whenwhere (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
+            'subtitle' : 'Time and Place'
             },
                                context_instance = RequestContext (request))
 
@@ -187,6 +190,7 @@ def exhibitors (request):
             'form' : ef,
             'message' : message,
             'theme' : theme,
+            'subtitle' : 'User Groups'
             },
                                context_instance = RequestContext (request))
 
@@ -208,6 +212,7 @@ def contactus (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
+            'subtitle' : 'Contact Us'
             },
                                context_instance = RequestContext (request))
 
@@ -286,6 +291,7 @@ def bzflag (request):
             'match2' : match2,
             'match3' : match3,
             'match4' : match4,
+            'subtitle' : 'BZFlag Tournament'
             },
                                context_instance = RequestContext (request))
 
