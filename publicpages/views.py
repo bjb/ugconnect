@@ -57,7 +57,7 @@ def index (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
-            'subtitle' : 'Home Page'
+            'subtitle' : 'User Group Connect'
             },
                                context_instance = RequestContext (request))
 
@@ -114,7 +114,7 @@ def sponsorships (request):
             'form' : sf,
             'message' : message,
             'theme' : theme,
-            'subtitle' : 'Sponsorships'
+            'subtitle' : 'Sponsors'
             },
                                context_instance = RequestContext (request))
 
