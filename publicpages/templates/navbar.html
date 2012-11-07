@@ -1,16 +1,9 @@
 {% load i18n %}
-<div id="navbar">
+<div class="navbar">
   <!-- p>
     Here is the default menu:
   </p -->
   <ul>
-    <li>
-      <div class="{{ menustatus.home }}">
-        {% ifnotequal menustatus.home 'selected' %}<a href="{% url index %}">{% endifnotequal %}
-          Home
-        {% ifnotequal menustatus.home 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
     <!-- li>
       <a href="/publicpages/new/">
         <div class="{{ menustatus.news }}">
@@ -40,6 +33,17 @@
       </div>
     </li>
     <li>
+      <div class="{{ menustatus.bzflag }}">
+        {% ifnotequal menustatus.bzflag 'selected' %}<a href="{% url bzflag %}">{% endifnotequal %}
+          BZFlag<br />Tourney
+        {% ifnotequal menustatus.bzflag 'selected' %}</a>{% endifnotequal %}
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="navbar">
+  <ul>
+    <li>
       <div class="{{ menustatus.contactus }}">
         {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
           Contact<br />Us
@@ -47,10 +51,10 @@
       </div>
     </li>
     <li>
-      <div class="{{ menustatus.bzflag }}">
-        {% ifnotequal menustatus.bzflag 'selected' %}<a href="{% url bzflag %}">{% endifnotequal %}
-          BZFlag<br />Tournament
-        {% ifnotequal menustatus.bzflag 'selected' %}</a>{% endifnotequal %}
+      <div class="{{ menustatus.home }}">
+        {% ifnotequal menustatus.home 'selected' %}<a href="{% url index %}">{% endifnotequal %}
+          Home
+        {% ifnotequal menustatus.home 'selected' %}</a>{% endifnotequal %}
       </div>
     </li>
   </ul>
