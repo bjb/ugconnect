@@ -61,3 +61,6 @@ div.navbar ul li div {
     font-size: larger;
 }
 
+div.navbar-container {
+    margin-bottom: 2em;
+}

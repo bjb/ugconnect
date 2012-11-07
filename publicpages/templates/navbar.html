@@ -1,62 +1,65 @@
 {% load i18n %}
-<div class="navbar">
-  <!-- p>
-    Here is the default menu:
-  </p -->
-  <ul>
-    <!-- li>
-      <a href="/publicpages/new/">
-        <div class="{{ menustatus.news }}">
-          News
+<div class="navbar-container">
+  <div class="navbar">
+    <!-- p>
+      Here is the default menu:
+    </p -->
+    <ul>
+      <!-- li>
+        <a href="/publicpages/new/">
+          <div class="{{ menustatus.news }}">
+            News
+          </div>
+        </a>
+      </li -->
+      <li>
+        <div class="{{ menustatus.sponsor }}">
+          {% ifnotequal menustatus.sponsor 'selected' %}<a href="{% url sponsorships %}">{% endifnotequal %}
+            Sponsors
+          {% ifnotequal menustatus.sponsor 'selected' %}</a>{% endifnotequal %}
         </div>
-      </a>
-    </li -->
-    <li>
-      <div class="{{ menustatus.sponsor }}">
-        {% ifnotequal menustatus.sponsor 'selected' %}<a href="{% url sponsorships %}">{% endifnotequal %}
-          Sponsors
-        {% ifnotequal menustatus.sponsor 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
-    <li>
-      <div class="{{ menustatus.exhibitor }}">
-        {% ifnotequal menustatus.exhibitor 'selected' %}<a href="{% url exhibitors %}">{% endifnotequal %}
-          User<br />Groups
-        {% ifnotequal menustatus.exhibitor 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
-    <li>
-      <div class="{{ menustatus.whenwhere }}">
-        {% ifnotequal menustatus.whenwhere 'selected' %}<a href="{% url whenwhere %}">{% endifnotequal %}
-          Time<br />Place
-        {% ifnotequal menustatus.whenwhere 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
-    <li>
-      <div class="{{ menustatus.bzflag }}">
-        {% ifnotequal menustatus.bzflag 'selected' %}<a href="{% url bzflag %}">{% endifnotequal %}
-          BZFlag<br />Tourney
-        {% ifnotequal menustatus.bzflag 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
-  </ul>
-</div>
-<div class="navbar">
-  <ul>
-    <li>
-      <div class="{{ menustatus.contactus }}">
-        {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
-          Contact<br />Us
-        {% ifnotequal menustatus.contactus 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
-    <li>
-      <div class="{{ menustatus.home }}">
-        {% ifnotequal menustatus.home 'selected' %}<a href="{% url index %}">{% endifnotequal %}
-          Home
-        {% ifnotequal menustatus.home 'selected' %}</a>{% endifnotequal %}
-      </div>
-    </li>
-  </ul>
+      </li>
+      <li>
+        <div class="{{ menustatus.exhibitor }}">
+          {% ifnotequal menustatus.exhibitor 'selected' %}<a href="{% url exhibitors %}">{% endifnotequal %}
+            User<br />Groups
+          {% ifnotequal menustatus.exhibitor 'selected' %}</a>{% endifnotequal %}
+        </div>
+      </li>
+      <li>
+        <div class="{{ menustatus.whenwhere }}">
+          {% ifnotequal menustatus.whenwhere 'selected' %}<a href="{% url whenwhere %}">{% endifnotequal %}
+            Time<br />Place
+          {% ifnotequal menustatus.whenwhere 'selected' %}</a>{% endifnotequal %}
+        </div>
+      </li>
+      <li>
+        <div class="{{ menustatus.bzflag }}">
+          {% ifnotequal menustatus.bzflag 'selected' %}<a href="{% url bzflag %}">{% endifnotequal %}
+            BZFlag<br />Tourney
+          {% ifnotequal menustatus.bzflag 'selected' %}</a>{% endifnotequal %}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar">
+    <ul>
+      <li>
+        <div class="{{ menustatus.contactus }}">
+          {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
+            Contact<br />Us
+          {% ifnotequal menustatus.contactus 'selected' %}</a>{% endifnotequal %}
+        </div>
+      </li>
+      <li>
+        <div class="{{ menustatus.home }}">
+          {% ifnotequal menustatus.home 'selected' %}<a href="{% url index %}">{% endifnotequal %}
+            Home
+          {% ifnotequal menustatus.home 'selected' %}</a>{% endifnotequal %}
+        </div>
+      </li>
+    </ul>
+    <div class="clearfloat"></div>
+  </div>
   <div class="clearfloat"></div>
 </div>
