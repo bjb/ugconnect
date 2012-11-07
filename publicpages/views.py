@@ -251,6 +251,11 @@ def bzflag (request):
             if count in match4_teams:
                 match4.append (team)
 
+    match1_count = len (match1)
+    match2_count = len (match2)
+    match3_count = len (match3)
+    match4_count = len (match4)
+
     message = ''
 
     if 'POST' == request.method:
@@ -291,6 +296,10 @@ def bzflag (request):
             'match2' : match2,
             'match3' : match3,
             'match4' : match4,
+            'match1_count' : match1_count,
+            'match2_count' : match2_count,
+            'match3_count' : match3_count,
+            'match4_count' : match4_count,
             'subtitle' : 'BZFlag Tournament'
             },
                                context_instance = RequestContext (request))
