@@ -45,13 +45,15 @@ table.sponsorship-levels td.amount {
 
 #content li {
     list-style-type: none;
+}
+
+#content ul.bulleted li {
+    list-style-type: none;
     background-image:  url(../images/C_bullet.png);
     background-repeat:  no-repeat;
     background-position: 0 3px;
     padding-left:  20px;
 }
-
-
 
 
 dt {
