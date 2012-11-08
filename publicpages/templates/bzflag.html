@@ -17,7 +17,7 @@
 {% if match1_count %}
 <ul class="bulleted">
   {% for team in match1 %}
-  <li>{{ team }}</li>
+  <li title="{{ team.captain }} {{ team.navigator }} {{ team.weapons_specialist }} {{ team.padre }}">{{ team }}</li>
   {% endfor %}
 </ul>
 {% else %}
@@ -27,7 +27,7 @@
 {% if match2_count %}
 <ul class="bulleted">
   {% for team in match2 %}
-  <li>{{ team }}</li>
+  <li title="{{ team.captain }} {{ team.navigator }} {{ team.weapons_specialist }} {{ team.padre }}">{{ team }}</li>
   {% endfor %}
 </ul>
 {% else %}
@@ -38,7 +38,7 @@
 {% if match3_count %}
 <ul class="bulleted">
   {% for team in match3 %}
-  <li>{{ team }}</li>
+  <li title="{{ team.captain }} {{ team.navigator }} {{ team.weapons_specialist }} {{ team.padre }}">{{ team }}</li>
   {% endfor %}
 </ul>
 {% else %}
@@ -49,7 +49,7 @@
 {% if match4_count %}
 <ul class="bulleted">
   {% for team in match4 %}
-  <li>{{ team }}</li>
+  <li title="{{ team.captain }} {{ team.navigator }} {{ team.weapons_specialist }} {{ team.padre }}">{{ team }}</li>
   {% endfor %}
 </ul>
 {% else %}
