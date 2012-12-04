@@ -206,7 +206,7 @@ def deploy_version (version_id):
             sudo ('cp %s/settings.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
             sudo ('cp %s/wsgi.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
             run ('./manage.py syncdb --settings=osf.settings')
-            run ('./manage.py migrate --settings=osf.settings')
+            run ('./manage.py migrate --settings=osf.settings --merge')
             run ('./manage.py collectstatic --settings=osf.settings')
             run ('./manage.py compilemessages --settings=osf.settings')
             sudo ('chown bjb.www-data osf/log')
