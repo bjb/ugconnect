@@ -58,8 +58,19 @@
 
 <h4>Round 2/finals</h4>
 <h3>Registration</h3>
+{% if 0 %}
 <form class="bzflag-form" id="bzflag-form" name="bzflag-form"
       action="{% url bzflag %}" method="post">
   {% include "_bzflag_form.html" %}
 </form>
+{% else %}
+<p>
+Email us at ugc at the domain oclug.on.ca to register your team.  We will need:
+</p>
+<ul>
+  <li>team name</li>
+  <li>names of up to four members</li>
+  <li>contact information for the team leader</li>
+</ul>
+{% endif %}
 {% endblock %}
