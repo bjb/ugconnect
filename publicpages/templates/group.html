@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load publicpages_helpers %}
+
+{% block title %}User Group Connect{% endblock %}
+{% block content %}
+
+<h2>{{ ug.name }}</h2>
+
+<h3>Meetings</h3>
+
+<h4>When</h4>
+<p>
+  {{ ug.meeting_time_as_string }}
+</p>
+
+<h4>Where</h4>
+{{ ug.meeting_location_as_string }}
+
+<h4>Contact Info</h4>
+<h5>Web site</h5>
+<a href="{{ ug.web_site }}">{{ ug.web_site }}</a>
+<h5>Email site</h5>
+{{ ug.email_site }}
+<h5>Other</h5>
+{{ ug.other_url }}
+
+<h5>Debug</h5>
+<pre>
+{{ ug.dump }}
+</pre>
+
+{% endblock %}

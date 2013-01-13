@@ -72,6 +72,9 @@ class Payment (models.Model):
 
 
 class UserGroup (models.Model):
+    '''
+    For the user groups attending this event
+    '''
     organization = models.ForeignKey (Organization)
     mailinglist = models.CharField (max_length = 128, null = True, blank = True)
     confirmed = models.BooleanField (default = False)  # only display confirmed UserGroups
@@ -144,3 +147,165 @@ class BzflagTeam (models.Model):
         return u'%s' % self.__repr__()
 
 
+
+WEEKDAYS = {
+    0 : 'Sunday',
+    1 : 'Monday',
+    2 : 'Tuesday',
+    3 : 'Wednesday',
+    4 : 'Thursday',
+    5 : 'Friday',
+    6 : 'Saturday'
+}
+
+WHICHWEEK = {
+    '1' : 'first',
+    '2' : 'second',
+    '3' : 'third',
+    '4' : 'fourth',
+    '5' : 'fifth',
+    '6' : 'last',
+    'last' : 'last'
+}
+
+def weekday_name(weekday_num):
+    return WEEKDAYS[weekday_num]
+
+def ordinal (week_num):
+    return WHICHWEEK['%s' % week_num]
+
+class UserGroup2 (models.Model):
+    '''
+    For the full list of user groups
+    '''
+    name = models.CharField (max_length = 64)
+    meet_weekday = models.IntegerField (WEEKDAYS, blank = True, null = True)
+    meet_week_of_month = models.IntegerField (WHICHWEEK, blank = True, null = True)
+    meet_description = models.TextField (blank = True, null = True)
+    location_name = models.CharField (max_length = 128, blank = True, null = True)
+    location_address = models.CharField (max_length = 1024, blank = True, null = True)
+    location_note = models.TextField (blank = True, null = True)
+    meeting_time = models.TimeField (blank = True, null = True)
+    web_site = models.URLField (blank = True, null = True)
+    email_site = models.CharField (max_length = 128, blank = True, null = True)
+    other_url = models.URLField (blank = True, null = True)
+
+    # in case they are attending - link to the other model
+    usergroup = models.ForeignKey (UserGroup, blank = True, null = True)
+
+    def __repr__(self):
+        return self.name
+
+    def __unicode__(self):
+        return u'%s' % self.__repr__()
+
+
+    def dump (self):
+        answer = ''
+        answer += 'Name:\t%s\n' % self.name
+
+        answer += '\tweekday:'
+        if self.meet_weekday:
+            answer += '\t%s' % WEEKDAYS[self.meet_weekday]
+        answer += ('\n')
+
+        answer += '\tweek of month:'
+        if self.meet_week_of_month:
+            answer += '\t%s' % WHICHWEEK ['%d' % self.meet_week_of_month]
+        answer += ('\n')
+
+        answer += '\tmeet_description:'
+        if self.meet_description:
+            answer += '\t%s' % self.meet_description
+        answer += ('\n')
+
+        answer += '\tlocation name:'
+        if self.location_name:
+            answer += '\t%s\n' % self.location_name
+        answer += ('\n')
+
+        answer += '\tlocation address:'
+        if self.location_address:
+            answer += '\t%s' % self.location_address
+        answer += ('\n')
+
+        answer += '\tlocation note:'
+        if self.location_note:
+            answer += '\t%s' % self.location_note
+        answer += ('\n')
+
+        answer += '\tmeeting time:'
+        if self.meeting_time:
+            answer += '\t%s' % self.meeting_time
+        answer += ('\n')
+
+        answer += '\tweb site:'
+        if self.web_site:
+            answer += '\t%s' % self.web_site
+        answer += ('\n')
+
+        answer += '\temail site:'
+        if self.email_site:
+            answer += '\t%s' % self.email_site
+        answer += ('\n')
+
+        answer += '\tother url:'
+        if self.other_url:
+            answer += '\t%s' % self.other_url
+        answer += ('\n')
+
+        answer += ('\n')
+
+        return answer
+
+    def meeting_time_as_string (self):
+        answer = ''
+        if self.meet_week_of_month:
+            answer += 'Meet on the %s ' % ordinal (self.meet_week_of_month)
+            if self.meet_weekday:
+                answer += '%s ' % weekday_name (self.meet_weekday)
+            else:
+                answer += 'week '
+            answer += 'of each month '
+            if self.meeting_time:
+                answer += 'at %s' % self.meeting_time.strftime ('%H:%M')
+            answer += '.'
+        else:
+            if self.meet_weekday:
+                answer += 'Meet on %s' % weekday_name (self.meet_weekday)
+                if self.meeting_time:
+                    answer += ' at %s' % self.meeting_time
+            else:
+                answer += 'Meeting time not known.'
+
+        if self.meet_description:
+            answer += '  %s' % self.meet_description
+
+        return answer
+
+    def url_string (self):
+        answer = ''
+
+        if self.web_site:
+            answer += self.web_site
+        elif self.other_url:
+            answer = self.other_url
+
+        return answer
+
+
+    def meeting_location_as_string (self):
+
+        answer = ''
+
+        if self.location_name or self.location_address or self.location_note:
+            if self.location_name:
+                answer += 'Meetings are at %s.' % self.location_name
+            if self.location_address:
+                answer += '   Address:  %s.' % self.location_address
+            if self.location_note:
+                answer += '   Note:  %s.' % self.location_note
+        else:
+            answer += 'Meeting location not known.'
+
+        return answer

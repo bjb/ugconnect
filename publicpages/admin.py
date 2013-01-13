@@ -1,4 +1,4 @@
-from publicpages.models import Organization, Sponsor, UserGroup, Payment, Theme, UserProfile, BzflagTeam
+from publicpages.models import Organization, Sponsor, UserGroup, Payment, Theme, UserProfile, BzflagTeam, UserGroup2
 from django.contrib import admin
 
 
@@ -15,6 +15,8 @@ class SponsorAdmin (admin.ModelAdmin):
 class UserGroupAdmin (admin.ModelAdmin):
     list_filter = ('confirmed',)
 
+class UserGroup2Admin (admin.ModelAdmin):
+    pass
 
 class PaymentAdmin (admin.ModelAdmin):
     pass
@@ -32,6 +34,7 @@ class BzflagTeamAdmin (admin.ModelAdmin):
 admin.site.register (Organization, OrganizationAdmin)
 admin.site.register (Sponsor, SponsorAdmin)
 admin.site.register (UserGroup, UserGroupAdmin)
+admin.site.register (UserGroup2, UserGroup2Admin)
 admin.site.register (Payment, PaymentAdmin)
 admin.site.register (Theme, ThemeAdmin)
 admin.site.register (UserProfile, UserProfileAdmin)

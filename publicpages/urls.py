@@ -10,4 +10,6 @@ urlpatterns = patterns('publicpages.views',
     url(r'whenwhere/$', 'whenwhere', name='whenwhere'),
     url(r'contactus/$', 'contactus', name='contactus'),
     url(r'bzflag/$', 'bzflag', name='bzflag'),
+    url(r'grouplist/$', 'grouplist', name='grouplist'),
+    url(r'group/(?P<id>\d+)$', 'group', name='group'),
 )

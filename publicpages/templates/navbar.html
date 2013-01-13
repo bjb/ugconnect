@@ -52,6 +52,13 @@
         </div>
       </li>
       <li>
+        <div class="{{ menustatus.grouplist }}">
+          {% ifnotequal menustatus.grouplist 'selected' %}<a href="{% url grouplist %}">{% endifnotequal %}
+            Ottawa Groups
+          {% ifnotequal menustatus.grouplist 'selected' %}</a>{% endifnotequal %}
+        </div>
+      </li>
+      <li>
         <div class="{{ menustatus.home }}">
           {% ifnotequal menustatus.home 'selected' %}<a href="{% url index %}">{% endifnotequal %}
             Home

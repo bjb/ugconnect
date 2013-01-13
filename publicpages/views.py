@@ -3,9 +3,10 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.auth import decorators    # for decorators.login_required
 from django.contrib.auth import models  # for models.User
+from django.db.models import Q
 
-from publicpages.models import Sponsor, UserGroup, Organization, Theme, BzflagTeam
-from publicpages.forms import SponsorForm, UserGroupForm, UserProfileForm, BzflagTeamForm
+from publicpages.models import Sponsor, UserGroup, Organization, Theme, BzflagTeam, UserGroup2
+from publicpages.forms import SponsorForm, UserGroupForm, UserProfileForm, BzflagTeamForm, UserGroup2Form
 from osf import settings
 
 import datetime
@@ -25,7 +26,10 @@ menustatus = {
     'sponsor' : '',
     'exhibitor' : '',
     'whenwhere' : '',
+    'bzflag' : '',
     'contactus' : '',
+    'grouplist' : '',
+    'home' : '',
 }
 
 
@@ -57,7 +61,7 @@ def index (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
-            'subtitle' : 'User Group Connect'
+            'subtitle' : 'User Group Connect',
             },
                                context_instance = RequestContext (request))
 
@@ -114,7 +118,7 @@ def sponsorships (request):
             'form' : sf,
             'message' : message,
             'theme' : theme,
-            'subtitle' : 'Sponsors'
+            'subtitle' : 'Sponsors',
             },
                                context_instance = RequestContext (request))
 
@@ -134,7 +138,7 @@ def whenwhere (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
-            'subtitle' : 'Time and Place'
+            'subtitle' : 'Time and Place',
             },
                                context_instance = RequestContext (request))
 
@@ -190,7 +194,7 @@ def exhibitors (request):
             'form' : ef,
             'message' : message,
             'theme' : theme,
-            'subtitle' : 'User Groups'
+            'subtitle' : 'User Groups',
             },
                                context_instance = RequestContext (request))
 
@@ -212,7 +216,7 @@ def contactus (request):
             'settings' : settings,
             'menustatus' : menustatus,
             'theme' : theme,
-            'subtitle' : 'Contact Us'
+            'subtitle' : 'Contact Us',
             },
                                context_instance = RequestContext (request))
 
@@ -300,9 +304,104 @@ def bzflag (request):
             'match2_count' : match2_count,
             'match3_count' : match3_count,
             'match4_count' : match4_count,
-            'subtitle' : 'BZFlag Tournament'
+            'subtitle' : 'BZFlag Tournament',
             },
                                context_instance = RequestContext (request))
+
+
+
+def grouplist (request):
+
+    (themeName) = theme_init (request)
+    clear_menustatus ()
+    menustatus['grouplist'] = 'selected'
+
+    sorted_sponsors = Sponsor.the_sponsors ()
+
+    if 'GET' == request.method:
+        form = UserGroup2Form ()
+        the_ugs = UserGroup2.objects.all ().order_by ('name')
+    else:
+        form = UserGroup2Form (request.POST)
+        if form.is_valid ():
+#            sun = form.cleaned_data['show_sunday']
+#            mon = form.cleaned_data['show_monday']
+#            tue = form.cleaned_data['show_tuesday']
+#            wed = form.cleaned_data['show_wednesday']
+#            thu = form.cleaned_data['show_thursday']
+#            fri = form.cleaned_data['show_friday']
+#            sat = form.cleaned_data['show_saturday']
+#            ukn = form.cleaned_data['show_unknown']
+#
+#
+#            first = form.cleaned_data['show_first']
+#            second = form.cleaned_data['show_second']
+#            third = form.cleaned_data['show_third']
+#            fourth = form.cleaned_data['show_fourth']
+#            fifth = form.cleaned_data['show_fifth']
+#            last = form.cleaned_data['show_last']
+#            uk2 = form.cleaned_data['show_unknown2']
+
+
+            whichday = form.cleaned_data['day_of_week']
+            if '-1' == whichday:
+                the_ugs = UserGroup2.objects.filter (meet_weekday = None).order_by ('name')
+            elif '-2' == whichday:
+                the_ugs = UserGroup2.objects.all().order_by ('name')
+            else:
+                the_ugs = UserGroup2.objects.filter (meet_weekday = int (whichday)).order_by ('name')
+
+            whichweek = form.cleaned_data['week_of_month']
+            if '-1' == whichweek:
+                the_ugs = the_ugs.filter (meet_week_of_month = None).order_by ('name')
+            elif '-2' == whichweek:
+                the_ugs = the_ugs.order_by ('name')
+            else:
+                the_ugs = the_ugs.filter (meet_week_of_month = int (whichweek)).order_by ('name')
+        else:
+            form = UserGroup2Form ()
+            the_ugs = UserGroup2.objects.all ().order_by ('name')
+
+    theme = Theme.objects.get (name = themeName)
+
+    return render_to_response (
+        'grouplist.html',
+        {
+            'sorted_sponsors' : sorted_sponsors,
+            'settings' : settings,
+            'menustatus' : menustatus,
+            'the_ugs' : the_ugs,
+            'theme' : theme,
+            'subtitle' : 'List of Groups in Ottawa',
+            'form' : form,
+            },
+        context_instance = RequestContext (request)
+        )
+
+
+def group (request, id):
+
+    (themeName) = theme_init (request)
+    clear_menustatus ()
+
+    sorted_sponsors = Sponsor.the_sponsors ()
+
+    the_ug = UserGroup2.objects.get (pk = int (id))
+
+    theme = Theme.objects.get (name = themeName)
+
+    return render_to_response (
+        'group.html',
+        {
+            'sorted_sponsors' : sorted_sponsors,
+            'settings' : settings,
+            'menustatus' : menustatus,
+            'ug' : the_ug,
+            'theme' : theme,
+            'subtitle' : 'Group Description',
+            },
+        context_instance = RequestContext (request)
+        )
 
 def custom_403_view(request):
     (themeName) = theme_init (request)

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}User Group Connect{% endblock %}
+{% block content %}
+<p id="intro-paragraph">
+Here is a list of all the technical user groups we know about in Ottawa.
+</p>
+
+<!-- form method="post" action="." name="filter_by_weekday" id="filter_by_weekday_id">
+  {% csrf_token %}
+  Filter by meeting date:  {{ form.day_of_week }}<br />
+  Filter by meeting week of month: {{ form.week_of_month }} <br />
+  <input type="submit" value="submit" />
+</form -->
+
+
+<dl class="allgroups">
+  {% for ug in the_ugs %}
+  <dt class="{% cycle 'odd' 'even' as rowcolor %}">
+    <a href="{% url group ug.id %}">{{ ug.name }}</a>
+  </dt>
+  <dd class="{{ rowcolor }}">
+    {% if ug.url_string %}
+    <a href="{{ ug.url_string }}" target="_blank">
+      {{ ug.url_string }}
+    </a>
+    {% endif %}
+  </dd>
+  {% endfor %}
+</dl>
+
+{% endblock %}

@@ -3,7 +3,7 @@ body {
     margin:   0;
     padding:  0px;
     background-image:  url(../images/people-faded.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     font-family:  "ProximaNova", "Helvetica Neue", Helvetica, sans-serif;
 } /* "ProximaNova", "Helvetica Neue" - try Googles web fonts */
 

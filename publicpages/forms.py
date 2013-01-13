@@ -108,3 +108,51 @@ class BzflagTeamForm (forms.ModelForm):
         return cleaned_data
 
 
+WEEKDAYS_CHOICES = (
+    ('-2', 'All'),
+    ('-1', 'Unknown'),
+    ( '0', 'Sunday'),
+    ( '1', 'Monday'),
+    ( '2', 'Tuesday'),
+    ( '3', 'Wednesday'),
+    ( '4', 'Thursday'),
+    ( '5', 'Friday'),
+    ( '6', 'Saturday'),
+)
+
+
+WHICHWEEK_CHOICES = (
+    ('-2', 'All'),
+    ('-1', 'Unknown'),
+    ('1', 'First'),
+    ('2', 'Second'),
+    ('3', 'Third'),
+    ('4', 'Fourth'),
+    ('5', 'Fifth'),
+    ('6', 'Last'),
+)
+
+class UserGroup2Form (forms.Form):
+
+    # show_sunday = forms.BooleanField (required = False)
+    # show_monday = forms.BooleanField (required = False)
+    # show_tuesday = forms.BooleanField (required = False)
+    # show_wednesday = forms.BooleanField (required = False)
+    # show_thursday = forms.BooleanField (required = False)
+    # show_friday = forms.BooleanField (required = False)
+    # show_saturday = forms.BooleanField (required = False)
+    # show_unknown = forms.BooleanField (required = False)
+    # show_all = forms.BooleanField (required = False)
+    day_of_week = forms.ChoiceField (choices = WEEKDAYS_CHOICES)
+
+
+    # show_first = forms.BooleanField (required=False)
+    # show_second = forms.BooleanField (required=False)
+    # show_third = forms.BooleanField (required=False)
+    # show_fourth = forms.BooleanField (required=False)
+    # show_fifth = forms.BooleanField (required=False)
+    # show_last = forms.BooleanField (required=False)
+    # show_unknown2 = forms.BooleanField (required=False)
+    # show_all = forms.BooleanField (required=False)
+    week_of_month = forms.ChoiceField (choices = WHICHWEEK_CHOICES)
+
