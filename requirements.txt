@@ -1,10 +1,12 @@
 Django==1.4.1
+Fabric==1.5.1
 PIL==1.1.7
 South==0.7.6
 argparse==1.2.1
 distribute==0.6.24
 django-filter==0.5.4
 django-simple-captcha==0.3.4
+paramiko==1.9.0
 psycopg2==2.4.5
 pycrypto==2.6
 ssh==1.7.14
