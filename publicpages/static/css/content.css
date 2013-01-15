@@ -123,3 +123,10 @@ dl.allgroups .even {
     padding: 0;
     display: block;
 }
+
+
+img {
+    border: solid 0 black;
+    margin: auto;
+    display: block;
+}
