@@ -118,7 +118,7 @@ dl.allgroups .even {
 }
 
 .clearfloat {
-    float: clear;
+    clear: both;
     margin: 0;
     padding: 0;
     display: block;
