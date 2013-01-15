@@ -90,22 +90,36 @@ table.allgroups td.amount {
     text-align: right;
 }
 
-/*
-table.allgroups tr.odd_odd, table.allgroups.tr.even_odd {
+
+dl.allgroups .odd {
     background-color: #FFF;
 }
-
-table.allgroups tr.odd_even {
-    background-color: #BBB;
+dl.allgroups .even {
+    background-color: #D0F0FF;
 }
-table.allgroups tr.even_even {
-    background-color: #DDD;
+.floatleft {
+    float: left;
+    display: inline;
+}
+
+/*
+.floatleft p {
+    margin: auto 0;
+    padding: auto 0;
 }
 */
 
-dl.allgroups .odd {
-    background-color: #98D4FF;
+#form_element {
+    position: relative;
 }
-dl.allgroups .even {
-    background-color: #C0EAFF;
+
+.multi-select {
+    vertical-align: middle;
+}
+
+.clearfloat {
+    float: clear;
+    margin: 0;
+    padding: 0;
+    display: block;
 }

@@ -85,8 +85,8 @@ class BzflagTeamForm (forms.ModelForm):
         '''
         no duplicate team names
         '''
-        cleaned_data = super (BzflagTeamForm, self).clean ()
-        tn = cleaned_data.get ('teamname')
+        self.cleaned_data = super (BzflagTeamForm, self).clean ()
+        tn = self.cleaned_data.get ('teamname')
         qs = BzflagTeam.objects.filter (teamname__exact = tn)
 
         if qs.count ():
@@ -99,13 +99,13 @@ class BzflagTeamForm (forms.ModelForm):
         '''
         max 16 teams
         '''
-        cleaned_data = super (BzflagTeamForm, self).clean ()
+        self.cleaned_data = super (BzflagTeamForm, self).clean ()
         qs = BzflagTeam.objects.all ()
 
         if 16 <= qs.count ():
             raise forms.ValidationError ('Sorry!  Tournament is fully subscribed.  Only 16 teams allowed!')
 
-        return cleaned_data
+        return self.cleaned_data
 
 
 WEEKDAYS_CHOICES = (
@@ -143,7 +143,9 @@ class UserGroup2Form (forms.Form):
     # show_saturday = forms.BooleanField (required = False)
     # show_unknown = forms.BooleanField (required = False)
     # show_all = forms.BooleanField (required = False)
-    day_of_week = forms.ChoiceField (choices = WEEKDAYS_CHOICES)
+    day_of_week = forms.MultipleChoiceField (choices = WEEKDAYS_CHOICES, required = False,
+        widget = forms.SelectMultiple (attrs = {'size' : '%d' % len (WEEKDAYS_CHOICES),
+                                                'class' : 'multi-select'}))
 
 
     # show_first = forms.BooleanField (required=False)
@@ -154,5 +156,17 @@ class UserGroup2Form (forms.Form):
     # show_last = forms.BooleanField (required=False)
     # show_unknown2 = forms.BooleanField (required=False)
     # show_all = forms.BooleanField (required=False)
-    week_of_month = forms.ChoiceField (choices = WHICHWEEK_CHOICES)
+    week_of_month = forms.MultipleChoiceField (choices = WHICHWEEK_CHOICES, required = False,
+        widget = forms.SelectMultiple (attrs = {'size' : '%d' % len (WHICHWEEK_CHOICES),
+                                                'class' : 'multi-select'}))
+
+    def clean_day_of_week (self):
+        return self.cleaned_data['day_of_week']
+
+    def clean_week_of_month (self):
+        return self.cleaned_data['week_of_month']
+
+    def clean (self):
+        return self.cleaned_data
+
 

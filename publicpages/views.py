@@ -312,6 +312,8 @@ def bzflag (request):
 
 def grouplist (request):
 
+    debug_str = 'debug_str'
+
     (themeName) = theme_init (request)
     clear_menustatus ()
     menustatus['grouplist'] = 'selected'
@@ -319,51 +321,56 @@ def grouplist (request):
     sorted_sponsors = Sponsor.the_sponsors ()
 
     if 'GET' == request.method:
+        debug_str += '; GET'
         form = UserGroup2Form ()
         the_ugs = UserGroup2.objects.all ().order_by ('name')
     else:
+        debug_str += '; not GET'
         form = UserGroup2Form (request.POST)
         if form.is_valid ():
-#            sun = form.cleaned_data['show_sunday']
-#            mon = form.cleaned_data['show_monday']
-#            tue = form.cleaned_data['show_tuesday']
-#            wed = form.cleaned_data['show_wednesday']
-#            thu = form.cleaned_data['show_thursday']
-#            fri = form.cleaned_data['show_friday']
-#            sat = form.cleaned_data['show_saturday']
-#            ukn = form.cleaned_data['show_unknown']
-#
-#
-#            first = form.cleaned_data['show_first']
-#            second = form.cleaned_data['show_second']
-#            third = form.cleaned_data['show_third']
-#            fourth = form.cleaned_data['show_fourth']
-#            fifth = form.cleaned_data['show_fifth']
-#            last = form.cleaned_data['show_last']
-#            uk2 = form.cleaned_data['show_unknown2']
 
+            debug_str += '; form valid'
+            whichdays = form.cleaned_data['day_of_week']
+            whichweeks = form.cleaned_data['week_of_month']
 
-            whichday = form.cleaned_data['day_of_week']
-            if '-1' == whichday:
-                the_ugs = UserGroup2.objects.filter (meet_weekday = None).order_by ('name')
-            elif '-2' == whichday:
-                the_ugs = UserGroup2.objects.all().order_by ('name')
-            else:
-                the_ugs = UserGroup2.objects.filter (meet_weekday = int (whichday)).order_by ('name')
+            # make a series of Q objects and use them
+            query_days = Q()
+            for num in whichdays:
+                if '-2' == num:
+                    query_days = Q()
+                    break
+                elif '-1' == num:
+                    query_days |= Q(meet_weekday__exact = None)
+                else:
+                    query_days |= Q(meet_weekday__exact = num)
 
-            whichweek = form.cleaned_data['week_of_month']
-            if '-1' == whichweek:
-                the_ugs = the_ugs.filter (meet_week_of_month = None).order_by ('name')
-            elif '-2' == whichweek:
-                the_ugs = the_ugs.order_by ('name')
-            else:
-                the_ugs = the_ugs.filter (meet_week_of_month = int (whichweek)).order_by ('name')
+            query_weeks = Q()
+            for num in whichweeks:
+                if '-2' == num:
+                    query_weeks = Q()
+                elif '-1' == num:
+                    query_weeks |= Q(meet_week_of_month = None)
+                else:
+                    query_weeks |= Q(meet_week_of_month = num)
+
+            the_ugs = UserGroup2.objects.filter (query_days, query_weeks).order_by ('name')
+
         else:
+            debug_str += '; form INvalid'
+            debug_str += ':  NON_FIELD_ERRORS: '
+            debug_str += '%s; ' % form.non_field_errors ()
+            debug_str += ':  FIELD_ERRORS (day_of_week): '
+            for error in form['day_of_week'].errors:
+                debug_str += error
+            debug_str += ':  FIELD_ERRORS (week_of_month): '
+            for error in form['week_of_month'].errors:
+                debug_str += error
             form = UserGroup2Form ()
             the_ugs = UserGroup2.objects.all ().order_by ('name')
 
     theme = Theme.objects.get (name = themeName)
 
+    debug_str += '; ALL DONE.'
     return render_to_response (
         'grouplist.html',
         {
@@ -374,6 +381,7 @@ def grouplist (request):
             'theme' : theme,
             'subtitle' : 'List of Groups in Ottawa',
             'form' : form,
+            'debug_str' : debug_str,
             },
         context_instance = RequestContext (request)
         )

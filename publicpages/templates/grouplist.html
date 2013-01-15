@@ -7,14 +7,21 @@
 Here is a list of all the technical user groups we know about in Ottawa.
 </p>
 
-<!-- form method="post" action="." name="filter_by_weekday" id="filter_by_weekday_id">
-  {% csrf_token %}
-  Filter by meeting date:  {{ form.day_of_week }}<br />
-  Filter by meeting week of month: {{ form.week_of_month }} <br />
-  <input type="submit" value="submit" />
-</form -->
+<div id="form_element">
+  <form method="post" action="." name="filter_by_weekday" id="filter_by_weekday_id">
+    {% csrf_token %}
+    <h4>Filters:</h4>
+    <div id="the_inputs">
+      date:
+      {{ form.day_of_week }}
+      week of month:
+      {{ form.week_of_month }}
+    </div>
+    <!-- div class="clearfloat"></div -->
 
-
+    <input type="submit" value="Filter" />
+  </form>
+</div>
 <dl class="allgroups">
   {% for ug in the_ugs %}
   <dt class="{% cycle 'odd' 'even' as rowcolor %}">
