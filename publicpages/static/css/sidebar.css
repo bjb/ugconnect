@@ -55,10 +55,16 @@
 
 img.platinum {
     max-height: 55px;
+    border: solid 0px black;
+    margin: auto;
+    display: block;
 }
 
 img.gold, img.silver, img.bronze {
     max-height: 40px;
+    border: solid 0px black;
+    margin: auto;
+    display: block;
 }
 
 hr {
