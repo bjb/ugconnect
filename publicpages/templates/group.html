@@ -17,17 +17,12 @@
 <h4>Where</h4>
 {{ ug.meeting_location_as_string }}
 
-<h4>Contact Info</h4>
-<h5>Web site</h5>
+<h3>Contact Info</h3>
+<h4>Web site</h4>
 <a href="{{ ug.web_site }}">{{ ug.web_site }}</a>
-<h5>Email site</h5>
+<h4>Email site</h4>
 {{ ug.email_site }}
-<h5>Other</h5>
+<h4>Other</h4>
 {{ ug.other_url }}
-
-<h5>Debug</h5>
-<pre>
-{{ ug.dump }}
-</pre>
 
 {% endblock %}

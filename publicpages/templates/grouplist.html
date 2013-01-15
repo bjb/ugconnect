@@ -24,7 +24,7 @@ Here is a list of all the technical user groups we know about in Ottawa.
 </div>
 <dl class="allgroups">
   {% for ug in the_ugs %}
-  <dt class="{% cycle 'odd' 'even' as rowcolor %}">
+  <dt class="{% cycle 'odd' 'even' as rowcolor %}" title="{{ ug.meeting_time_as_string }} / {{ ug.meeting_location_as_string }}">
     <a href="{% url group ug.id %}">{{ ug.name }}</a>
   </dt>
   <dd class="{{ rowcolor }}">
