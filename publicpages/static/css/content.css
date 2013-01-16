@@ -71,26 +71,6 @@ table.sponsorship-levels td.amount {
 
 
 
-
-table.allgroups {
-    border-spacing:  2em 0;
-    /* border-collapse: collapse; */
-    /* border:  solid 1px #888888; */
-}
-
-table.allgroups tr.heading {
-    border-bottom:  solid 1px #888888;
-}
-
-table.allgroups td.level {
-    text-align: center;
-}
-
-table.allgroups td.amount {
-    text-align: right;
-}
-
-
 dl.allgroups .odd {
     background-color: #FFF;
 }
@@ -124,6 +104,18 @@ ul.allgroups li a:hover, ul.allgroups li a:active {
 
 ul.allgroups li a.groupname {
     margin: 0 0 0 0.5em;
+}
+
+
+ul.allgroups img {
+    border-bottom: solid 2px #FFFFFF;
+    padding-bottom: 3px;
+    position: relative;
+    bottom: -3px;
+}
+
+ul.allgroups img:hover {
+    border-bottom: solid 2px #4489BF;
 }
 
 

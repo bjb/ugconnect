@@ -27,10 +27,7 @@ Here is a list of all the technical user groups we know about in Ottawa.
 <ul class="allgroups">
   {% for ug in the_ugs %}
   <li class="{% cycle 'odd' 'even' as rowcolor %}" title="{{ ug.meeting_time_as_string }} / {{ ug.meeting_location_as_string }}">
-    <a href="{{ ug.url_string }}" target="_blank">
-      <img src="{{ settings.STATIC_URL }}images/external-link.png"
-           alt="external link" title="{{ ug.url_string }} " />
-    </a>
+    <a href="{{ ug.url_string }}" target="_blank"><img src="{{ settings.STATIC_URL }}images/external-link.png" alt="external link" title="{{ ug.url_string }} " /></a>
     <a href="{% url group ug.id %}" class="groupname">{{ ug.name }}</a>
   </li>
   {% endfor %}

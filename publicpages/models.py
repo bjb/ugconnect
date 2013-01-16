@@ -168,6 +168,25 @@ WHICHWEEK = {
     'last' : 'last'
 }
 
+WEEKDAY_CHOICES = (
+    (0, WEEKDAYS[0]),
+    (1, WEEKDAYS[1]),
+    (2, WEEKDAYS[2]),
+    (3, WEEKDAYS[3]),
+    (4, WEEKDAYS[4]),
+    (5, WEEKDAYS[5]),
+    (6, WEEKDAYS[6]),
+)
+
+WHICHWEEK_CHOICES = (
+    (1, WHICHWEEK['1']),
+    (2, WHICHWEEK['2']),
+    (3, WHICHWEEK['3']),
+    (4, WHICHWEEK['4']),
+    (5, WHICHWEEK['5']),
+    (6, WHICHWEEK['6']),
+)
+
 def weekday_name(weekday_num):
     return WEEKDAYS[weekday_num]
 
@@ -179,8 +198,8 @@ class UserGroup2 (models.Model):
     For the full list of user groups
     '''
     name = models.CharField (max_length = 64)
-    meet_weekday = models.IntegerField (WEEKDAYS, blank = True, null = True)
-    meet_week_of_month = models.IntegerField (WHICHWEEK, blank = True, null = True)
+    meet_weekday = models.IntegerField (choices = WEEKDAY_CHOICES, blank = True, null = True)
+    meet_week_of_month = models.IntegerField (choices = WHICHWEEK_CHOICES, blank = True, null = True)
     meet_description = models.TextField (blank = True, null = True)
     location_name = models.CharField (max_length = 128, blank = True, null = True)
     location_address = models.CharField (max_length = 1024, blank = True, null = True)
