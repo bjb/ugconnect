@@ -10,31 +10,30 @@ Here is a list of all the technical user groups we know about in Ottawa.
 <div id="form_element">
   <form method="post" action="." name="filter_by_weekday" id="filter_by_weekday_id">
     {% csrf_token %}
-    <h4>Filters:</h4>
-    <div id="the_inputs">
-      date:
+    <h4 class="form-header">Filters:</h4>
+    <div class="day-input">
+      day:
       {{ form.day_of_week }}
+    </div>
+    <div class="week-input">
       week of month:
       {{ form.week_of_month }}
     </div>
-    <!-- div class="clearfloat"></div -->
 
-    <input type="submit" value="Filter" />
+    <input type="submit" value="Filter" class="submit-button" />
+    <div class="clearfloatleft"></div>
   </form>
 </div>
-<dl class="allgroups">
+<ul class="allgroups">
   {% for ug in the_ugs %}
-  <dt class="{% cycle 'odd' 'even' as rowcolor %}" title="{{ ug.meeting_time_as_string }} / {{ ug.meeting_location_as_string }}">
-    <a href="{% url group ug.id %}">{{ ug.name }}</a>
-  </dt>
-  <dd class="{{ rowcolor }}">
-    {% if ug.url_string %}
+  <li class="{% cycle 'odd' 'even' as rowcolor %}" title="{{ ug.meeting_time_as_string }} / {{ ug.meeting_location_as_string }}">
     <a href="{{ ug.url_string }}" target="_blank">
-      {{ ug.url_string }}
+      <img src="{{ settings.STATIC_URL }}images/external-link.png"
+           alt="external link" title="{{ ug.url_string }} " />
     </a>
-    {% endif %}
-  </dd>
+    <a href="{% url group ug.id %}" class="groupname">{{ ug.name }}</a>
+  </li>
   {% endfor %}
-</dl>
+</ul>
 
 {% endblock %}

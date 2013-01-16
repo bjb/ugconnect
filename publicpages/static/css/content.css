@@ -102,29 +102,48 @@ dl.allgroups .even {
     display: inline;
 }
 
-/*
-.floatleft p {
-    margin: auto 0;
-    padding: auto 0;
-}
-*/
-
-#form_element {
-    position: relative;
-}
 
 .multi-select {
-    vertical-align: middle;
+    vertical-align: top;
 }
-
-.clearfloat {
-    clear: both;
-    margin: 0;
-    padding: 0;
-    display: block;
-}
-
 
 img {
     border: solid 0 black;
+}
+
+
+
+ul.allgroups li a:link, ul.allgroups li a:visited {
+    text-decoration: none;
+}
+
+ul.allgroups li a:hover, ul.allgroups li a:active {
+    text-decoration: underline;
+}
+
+
+ul.allgroups li a.groupname {
+    margin: 0 0 0 0.5em;
+}
+
+
+#filter_by_weekday_id input.submit-button {
+    margin: 0 0 0 1em;
+    padding:  0 1em;
+    font-size: 120%;
+}
+
+
+h4.form-header {
+    text-align: center;
+}
+
+
+#form_element .day-input, #form_element .week-input {
+    margin: 0 0 0 2em;
+    float: left;
+}
+
+.clearfloatleft {
+    clear: left;
 }
