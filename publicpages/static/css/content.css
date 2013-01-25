@@ -114,7 +114,7 @@ ul.allgroups a img {
     bottom: -3px;
 }
 
-ul.allgroups img:hover {
+ul.allgroups a img:hover {
     border-bottom: solid 2px #4489BF;
 }
 
