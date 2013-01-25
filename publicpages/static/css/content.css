@@ -107,7 +107,7 @@ ul.allgroups li a.groupname {
 }
 
 
-ul.allgroups img {
+ul.allgroups a img {
     border-bottom: solid 2px #FFFFFF;
     padding-bottom: 3px;
     position: relative;
@@ -138,4 +138,25 @@ h4.form-header {
 
 .clearfloatleft {
     clear: left;
+}
+
+div.takenote {
+    margin: 1em 0 0 0;
+    background-color: #D0F0FF;
+}
+
+
+/* a div the same size as the check.png image */
+div.blankcheck {
+    height: 24px;
+    width: 24px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+
+ul.allgroups img {
+    position: relative;
+    bottom: -3px;
 }
