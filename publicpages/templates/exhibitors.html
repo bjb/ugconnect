@@ -16,6 +16,7 @@ have access from 10:00 am.
       Agile Ottawa and SCRUM user groups <em>used</em> to be separate groups ...</li>
 </ul>
 <h3>List of confirmed user groups</h3>
+<p>See <a href="{% url grouplist %}">Ottawa Groups</a> for a list of all the Ottawa User Groups we know about, so far.</p>
 <ul class="confirmed-usergroups">
   {% for ug in ugs %}
   <li><a href="{{ ug.organization.linkurl }}"><img src="{{ ug.organization.logo.url }}" alt="ug logo" /></a>  <a href="{{ ug.organization.linkurl }}">{{ ug.organization.name }}</a></li>
