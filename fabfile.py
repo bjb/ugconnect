@@ -200,6 +200,7 @@ def deploy_version (version_id):
 
     with cd (PROJECT_ROOT):
         with prefix ('source %s' % ACTIVATE_SCRIPT):
+            sudo ('cp ../secrets.osf osf/secrets.py')
             sudo ('chown bjb.www-data static')
             sudo ('chmod 2775 static')
             # sudo ('cp %s/settings.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
@@ -208,11 +209,17 @@ def deploy_version (version_id):
             run ('./manage.py migrate --settings=osf.settings --merge')
             run ('./manage.py collectstatic --settings=osf.settings')
             run ('./manage.py compilemessages --settings=osf.settings')
+
             sudo ('chown bjb.www-data osf/log')
             sudo ('chmod 2775 osf/log')
+
             sudo ('touch osf/log/error.log')
             sudo ('chown bjb.www-data osf/log/error.log')
             sudo ('chmod 775 osf/log/error.log')
+
+            sudo ('touch osf/log/osf.log')
+            sudo ('chown bjb.www-data osf/log/osf.log')
+            sudo ('chmod 775 osf/log/osf.log')
 
     restart_app ()
 

@@ -28,13 +28,13 @@ DATABASES = {
     }
 }
 
-LOGDIR_PATH = os.path.join (PROJECTPARENT, 'log')
+LOGDIR_PATH = os.path.join (os.path.join (PROJECTPARENT, 'osf'), 'log')
 LOGFILE_PATH = os.path.join (LOGDIR_PATH, 'osf.log')
 
 try:
     DEBUG = False
     from secrets import *
-except Import Error:
+except ImportError:
     DEBUG = True
 
 
@@ -181,7 +181,7 @@ LOGGING = {
 logging.basicConfig (
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s',
-    filename = LOGFILE_PATH
+    filename = LOGFILE_PATH,
     filemode = 'w'
 )
 
