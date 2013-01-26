@@ -10,16 +10,15 @@ edit it
 
 do not commit it to git - it's for your site's private stuff
 
-```
-    $ virtualenv --no-site-packages /usr/local/pythonenv/UGC
-    $ bash        # this is so you don't lose your terminal when you want to undo the virtualenv
-    $ source /usr/local/pythonenv/UGC/bin/activate
-    # chmod +x manage.py   # I don't want to have to type "python" before ./manage.py all the time
-    # ./manage.py syncdb   # this should ask you to create a superuser
-    # ./manage.py migrate
-    # ./manage.py createsuperuser  # if not created yet
-    # ./manage.py runserver
-```
+        $ virtualenv --no-site-packages /usr/local/pythonenv/UGC
+        $ bash        # this is so you don't lose your terminal when you want to undo the virtualenv
+        $ source /usr/local/pythonenv/UGC/bin/activate
+        # chmod +x manage.py   # I don't want to have to type "python" before ./manage.py all the time
+        # ./manage.py syncdb   # this should ask you to create a superuser
+        # ./manage.py migrate
+        # ./manage.py createsuperuser  # if not created yet
+        # ./manage.py runserver
+
 
 visit http://localhost:8000/admin
 
