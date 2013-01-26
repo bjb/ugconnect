@@ -3,8 +3,6 @@
 import os.path
 import logging
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 PROJECTROOT = os.path.dirname (os.path.abspath (__file__))
 PROJECTPARENT = os.path.dirname (PROJECTROOT)
@@ -14,6 +12,10 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+
+DEBUG = True
+SECRET_KEY = 'a secret key'
 
 DATABASES = {
     'default': {
@@ -25,6 +27,19 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+LOGDIR_PATH = os.path.join (PROJECTPARENT, 'log')
+LOGFILE_PATH = os.path.join (LOGDIR_PATH, 'osf.log')
+
+try:
+    DEBUG = False
+    from secrets import *
+except Import Error:
+    DEBUG = True
+
+
+TEMPLATE_DEBUG = DEBUG
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -86,9 +101,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'vxwqrb=2nne&amp;m6!2p!qjp+01(n2b5u2+a&amp;v%aoq)h*7-qe26gl'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -169,7 +181,7 @@ LOGGING = {
 logging.basicConfig (
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s',
-    filename = os.path.join (PROJECTROOT, 'log/error.log'),
+    filename = LOGFILE_PATH
     filemode = 'w'
 )
 
