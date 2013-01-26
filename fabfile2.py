@@ -203,7 +203,7 @@ def deploy_version (version_id):
         with prefix ('source %s' % ACTIVATE_SCRIPT):
             sudo ('chown bjb.www-data static')
             sudo ('chmod 2775 static')
-            sudo ('cp %s/settings.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
+            sudo ('cp %s/secrets.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
             sudo ('cp %s/wsgi.py %s/osf' % (PROJECT_LOCATION, PROJECT_ROOT))
             run ('./manage.py syncdb --settings=osf.settings')
             run ('./manage.py migrate --settings=osf.settings --merge')
