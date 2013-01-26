@@ -1,10 +1,15 @@
 
 
 Website for running User Group Connect event
+--------------------------------------------
 
-To make your site:
+==================
+To make your site
+==================
 
-    $ cp secrets.py.template secrets.py
+.. code-block::
+
+        $ cp secrets.py.template secrets.py
 
 edit it
 
@@ -31,7 +36,9 @@ usergroup has an organization
 sponsor has an organization
 
 
+==================
 todo:
+==================
 
 At the moment, usergroup logos get uploaded into
 the static images directory - not good but that's the
