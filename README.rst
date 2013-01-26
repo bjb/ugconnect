@@ -10,7 +10,7 @@ edit it
 
 do not commit it to git - it's for your site's private stuff
 
-```bash
+```
     $ virtualenv --no-site-packages /usr/local/pythonenv/UGC
     $ bash        # this is so you don't lose your terminal when you want to undo the virtualenv
     $ source /usr/local/pythonenv/UGC/bin/activate
