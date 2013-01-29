@@ -70,6 +70,12 @@ class Payment (models.Model):
     amount = models.IntegerField ()  # in cents; Decimal can only be used with python 2.7 and my dev box doesn't have that
     date = models.DateField ()
 
+    def __repr__(self):
+        return '%s %s %f' % (self.sponsor.organization.name, self.date, self.amount / 100)
+
+    def __unicode__ (self):
+        return u'%s' % self.__repr__()
+
 
 class UserGroup (models.Model):
     '''

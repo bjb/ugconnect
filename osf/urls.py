@@ -16,6 +16,12 @@ urlpatterns = patterns('',
     # url(r'^osf/', include('osf.foo.urls')),
     url(r'^publicpages/', include('publicpages.urls')),
 
+
+    url(r'^allgroups/', include('allgroups.urls')),
+
+
+
+
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
