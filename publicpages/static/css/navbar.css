@@ -5,62 +5,110 @@ div.navbar {
     font-weight:      700;
     margin-top:       20px;
     margin-bottom:    20px;
+    position: relative;
 }
 
+div.navbar-container div.navbar-subcontainer {
+    clear: both;
+}
 div.navbar a {
     text-decoration:  none;
 }
 
-div.navbar ul {
-    list-style: none;
-    display: block;
-}
- 
 div#logo {
     margin-top:  -30px;
     margin-left: -30px;
-    float:       left;
+    /* float:       left; */
 }
 
-div.navbar ul li {
-    list-style: none;
-    display: inline;
+div.navbar div.menuitems-container {
+    margin: 0 0 0 35%;
 }
 
-div.navbar ul, div.navbar ul li, div.navbar ul li div, div.navbar ul li div a {
-    height:  100%;
-}
-
-div.navbar ul li div {
+div.navbar div.menuitem {
     margin-left: 5px;
     background-color: #79B8E4;
     width: 100px;
-    float: left;
+    /* float: left; */
     text-align: center;
     vertical-align: middle;
+    height:  50px;
+    display: inline-block;
+}
+
+
+.navbar div.menuitem:hover {
+    background-color: #4489BF;
+}
+
+.navbar div.menuitem:hover a, .navbar div.menuitem:hover {
+    color: white;
+}
+
+.navbar div.menuitem.inactive {
+    background-color: #79B8E4;
+    color: #00A;
+}
+
+.navbar div.menuitem.selected {
+    font-size: larger;
 }
 
 .navbar {
     color:  #00A;
 }
 
-.navbar ul li div:hover {
-    background-color: #4489BF;
-}
-
-.navbar ul li div:hover a, .navbar ul li div:hover {
-    color: white;
-}
-
-.navbar ul li div.inactive {
-    background-color: #79B8E4;
-    color: #00A;
-}
-
-.navbar ul li div.selected {
-    font-size: larger;
-}
-
 div.navbar-container {
-    margin-bottom: 2em;
+    margin-bottom: 3em;
+}
+
+@media screen and (max-width: 1024px) {
+
+    div.navbar {
+        /* height: auto; */
+    }
+/*
+    div.navbar ul {
+        list-style: none;
+        display: block;
+        background-color: green;
+    }
+
+    div.navbar ul li {
+        list-style: none;
+        display: block;
+        margin: 0 3em 0 0;
+    }
+
+    div.navbar ul li div {
+        width:  100%;
+        border: solid 1px navy;
+        height: 100px;
+        font-size: 200%;
+        margin:  0.25em 0 0 0;
+    }
+
+    div.navbar ul li div.selected {
+        clear:  both;
+        width:  100%;
+        border: solid 1px navy;
+        height: 100px;
+        font-size: 225%;
+        font-weight:  bold;
+        margin:  0.25em 0 0 0;
+    }
+*/
+    div.navbar-container {
+    }
+}
+
+@media screen and (max-device-width: 900px) {
+    div.navbar {
+        height: auto;
+    }
+    div.navbar div.menuitem {
+        display: block;
+        width: 100%;
+        border: solid 1px navy;
+    }
 }

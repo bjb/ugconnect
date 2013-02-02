@@ -55,6 +55,10 @@ table.sponsorship-levels td.amount {
     padding-left:  20px;
 }
 
+#content ul.confirmed-sponsors li {
+    margin: 6px 0 0 0;
+}
+
 
 .contactus dt {
     font-weight: 800;
@@ -160,3 +164,16 @@ ul.allgroups img {
     position: relative;
     bottom: -3px;
 }
+
+/*
+@media (max-device-width: 900px) {
+    #content {
+        width: 100%;
+    }
+
+    .sidebar {
+        clear: float;
+        width: 100%;
+    }
+}
+*/
