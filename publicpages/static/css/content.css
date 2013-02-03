@@ -155,7 +155,7 @@ div.blankcheck {
     }
 
     .sidebar {
-        clear: float;
+        clear: both;
         width: 100%;
     }
 }
@@ -166,7 +166,7 @@ div.blankcheck {
     }
 
     .sidebar {
-        clear: float;
+        clear: both;
         width: 100%;
     }
 }

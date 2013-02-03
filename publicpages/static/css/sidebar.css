@@ -64,7 +64,7 @@ hr {
 
 @media (max-device-width: 900px) {
     .sidebar {
-        clear: float;
+        clear: both;
         width: 100%;
     }
 
@@ -88,7 +88,7 @@ hr {
 
 @media (max-width: 900px) {
     .sidebar {
-        clear: float;
+        clear: both;
         width: 100%;
     }
 
