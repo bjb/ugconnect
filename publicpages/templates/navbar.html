@@ -12,17 +12,17 @@
       </div>
     <div class="menuitem {{ menustatus.exhibitor }}">
       {% ifnotequal menustatus.exhibitor 'selected' %}<a href="{% url exhibitors %}">{% endifnotequal %}
-        User<br />Groups
+        User Groups
       {% ifnotequal menustatus.exhibitor 'selected' %}</a>{% endifnotequal %}
     </div>
     <div class="menuitem {{ menustatus.whenwhere }}">
       {% ifnotequal menustatus.whenwhere 'selected' %}<a href="{% url whenwhere %}">{% endifnotequal %}
-        Time<br />Place
+        Time Place
       {% ifnotequal menustatus.whenwhere 'selected' %}</a>{% endifnotequal %}
     </div>
     <div class="menuitem {{ menustatus.bzflag }}">
       {% ifnotequal menustatus.bzflag 'selected' %}<a href="{% url bzflag %}">{% endifnotequal %}
-        BZFlag<br />Tourney
+        BZFlag Tourney
       {% ifnotequal menustatus.bzflag 'selected' %}</a>{% endifnotequal %}
       </div>
     </div>
@@ -31,7 +31,7 @@
     <div class="menuitems-container">
     <div class="menuitem {{ menustatus.contactus }}">
       {% ifnotequal menustatus.contactus 'selected' %}<a href="{% url contactus %}">{% endifnotequal %}
-        Contact<br />Us
+        Contact Us
       {% ifnotequal menustatus.contactus 'selected' %}</a>{% endifnotequal %}
     </div>
     <div class="menuitem {{ menustatus.grouplist }}">

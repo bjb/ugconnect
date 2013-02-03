@@ -3,76 +3,68 @@
 <div class="sidebar">
   <h2>Sponsors</h2>
   <div class="platinum-div sponsor-div">
-    <h3>Platinum</h3>
-    <ul>
-      {% ifnotequal sorted_sponsors.0.count 0 %}
-      {% for sponsor in sorted_sponsors.0 %}
-      <li>
-        <a href="{{ sponsor.organization.linkurl }}">
-          <img class="platinum"
-               src="{{ sponsor.organization.logo.url }}"
-               alt="{{ sponsor.organization.name }}"
-               title="{{ sponsor.organization.name }}"/>
-        </a>
-      </li>
-      {% endfor %}
-      {% else %}
-      <li id="attention">This prime spot is available!</li>
-      {% endifnotequal %}
-    </ul>
+    <h3>Platinum Sponsor</h3>
+    {% ifnotequal sorted_sponsors.0.count 0 %}
+    {% for sponsor in sorted_sponsors.0 %}
+    <div class="one-sponsor">
+      <a href="{{ sponsor.organization.linkurl }}">
+        <img class="platinum"
+             src="{{ sponsor.organization.logo.url }}"
+             alt="{{ sponsor.organization.name }}"
+             title="{{ sponsor.organization.name }}"/>
+      </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="attention">This prime spot is available!</div>
+    {% endifnotequal %}
   </div>
   <hr />
   <div class="gold-div sponsor-div">
     <h3>Gold</h3>
-    <ul>
-      {% for sponsor in sorted_sponsors.1 %}
-      <li>
-        <a href="{{ sponsor.organization.linkurl }}">
-          <img class="gold"
-               src="{{ sponsor.organization.logo.url }}"
-               alt="{{ sponsor.organization.name }}"
-               title="{{ sponsor.organization.name }}"/>
-        </a>
-      </li>
-      {% endfor %}
-      <li>This spot is open!</li>
-      <li>There are a couple of spots at this level.</li>
-    </ul>
+    {% for sponsor in sorted_sponsors.1 %}
+    <div class="one-sponsor">
+      <a href="{{ sponsor.organization.linkurl }}">
+        <img class="gold"
+             src="{{ sponsor.organization.logo.url }}"
+             alt="{{ sponsor.organization.name }}"
+             title="{{ sponsor.organization.name }}"/>
+      </a>
+    </div>
+    {% endfor %}
+    <div class="msg">This spot is open!</div>
+    <div class="msg">There are a couple of spots at this level.</div>
   </div>
-  <hr />
+  <hr class="sometimes" />
   <div class="silver-div sponsor-div">
     <h3>Silver</h3>
-    <ul>
-      {% for sponsor in sorted_sponsors.2 %}
-      <li>
-        <a href="{{ sponsor.organization.linkurl }}">
-          <img class="silver"
-               src="{{ sponsor.organization.logo.url }}"
-               alt="{{ sponsor.organization.name }}"
-               title="{{ sponsor.organization.name }}" />
-        </a>
-      </li>
-      {% endfor %}
-      <li>This spot is open!</li>
-      <li>There are a few spots at this level.</li>
-    </ul>
+    {% for sponsor in sorted_sponsors.2 %}
+    <div class="one-sponsor">
+      <a href="{{ sponsor.organization.linkurl }}">
+        <img class="silver"
+             src="{{ sponsor.organization.logo.url }}"
+             alt="{{ sponsor.organization.name }}"
+             title="{{ sponsor.organization.name }}" />
+      </a>
+    </div>
+    {% endfor %}
+    <div class="msg">This spot is open!</div>
+    <div class="msg">There are a few spots at this level.</div>
   </div>
-  <hr />
+  <hr class="sometimes" />
   <div class="bronze-div sponsor-div">
     <h3>Bronze</h3>
-    <ul>
-      {% for sponsor in sorted_sponsors.3 %}
-      <li>
-        <a href="{{ sponsor.organization.linkurl }}">
-          <img class="bronze"
-               src="{{ sponsor.organization.logo.url }}"
-               alt="{{ sponsor.organization.name }}"
-               title="{{ sponsor.organization.name }}" />
-        </a>
-      </li>
-      {% endfor %}
-      <li>This spot is open!</li>
-      <li>There are several spots at this level.</li>
-    </ul>
+    {% for sponsor in sorted_sponsors.3 %}
+    <div class="one-sponsor">
+      <a href="{{ sponsor.organization.linkurl }}">
+        <img class="bronze"
+             src="{{ sponsor.organization.logo.url }}"
+             alt="{{ sponsor.organization.name }}"
+             title="{{ sponsor.organization.name }}" />
+      </a>
+    </div>
+    {% endfor %}
+    <div class="msg">This spot is open!</div>
+    <div class="msg">There are several spots at this level.</div>
   </div>
 </div>

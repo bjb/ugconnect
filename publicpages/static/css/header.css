@@ -43,13 +43,19 @@ h2#title {
 @media screen and (max-device-width: 900px) {
 
     div#header {
-        /* background-color: red; */
-        /* height: 100px; */
         overflow: visible;
     }
 
     div#header img {
-        /* height:  100%; */
-        /* width:   100%; */
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    div#header {
+        overflow: visible;
+    }
+
+    div#header img {
     }
 }
