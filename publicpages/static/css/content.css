@@ -51,7 +51,7 @@ table.sponsorship-levels td.amount {
 
 .contactus dt {
     font-weight: 800;
-    float: left;
+    /* float: left; */
     width:  5em;
     height:  3em;
 }
@@ -152,22 +152,14 @@ div.blankcheck {
 @media (max-device-width: 900px) {
     #content {
         width: 100%;
-    }
-
-    .sidebar {
-        clear: both;
-        width: 100%;
+        clear: right;
     }
 }
 
 @media (max-width: 900px) {
     #content {
         width: 100%;
-    }
-
-    .sidebar {
-        clear: both;
-        width: 100%;
+        clear: right;
     }
 }
 
