@@ -67,10 +67,11 @@ div.navbar-container {
         height: auto;
         width:  auto;
         margin: 0 1em 0 0;
+        background-color: #FFFFFF;
     }
     div.navbar div.menuitem {
         display: block;
-        width: 100%;
+        width: 80%;
         border: solid 1px navy;
     }
 }
@@ -80,10 +81,11 @@ div.navbar-container {
         height: auto;
         width: auto;
         margin: 0 1em 0 0;
+        background-color: #FFFFFF;
     }
     div.navbar div.menuitem {
         display: block;
-        width: 100%;
+        width: 80%;
         border: solid 1px navy;
     }
 }

@@ -49,6 +49,16 @@ table.sponsorship-levels td.amount {
     max-height: 25px;
 }
 
+
+#content ul.confirmed-usergroups li {
+    margin: 0.5em 0 0 0;
+}
+
+#content .confirmed-usergroups img {
+    max-height: 25px;
+}
+
+
 .contactus dt {
     font-weight: 800;
     /* float: left; */
