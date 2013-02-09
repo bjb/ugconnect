@@ -1,5 +1,7 @@
 from publicpages.models import Organization, Sponsor, UserGroup, Payment, Theme, UserProfile, BzflagTeam, UserGroup2
 from django.contrib import admin
+from django.contrib.admin import SimpleListFilter
+
 
 
 class OrganizationAdmin (admin.ModelAdmin):
@@ -15,8 +17,29 @@ class SponsorAdmin (admin.ModelAdmin):
 class UserGroupAdmin (admin.ModelAdmin):
     list_filter = ('confirmed',)
 
+
+class HasUserGroupFilter(SimpleListFilter):
+    title = 'Has user group'
+    parameter_name = ('flag')
+
+    def lookups(self, request, model_admin):
+        return (
+            ('usergroup', 'with reference'),
+            ('no usergroup', 'no reference')
+            )
+
+    def queryset(self, request, queryset):
+        answer = queryset
+        if 'usergroup' == self.value ():
+            answer = queryset.filter (usergroup__isnull = False)
+        elif 'no usergroup' == self.value ():
+            answer = queryset.filter (usergroup__isnull = True)
+
+        return answer
+
+
 class UserGroup2Admin (admin.ModelAdmin):
-    pass
+    list_filter = (HasUserGroupFilter,)
 
 class PaymentAdmin (admin.ModelAdmin):
     pass

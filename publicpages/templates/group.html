@@ -7,6 +7,13 @@
 
 <h2>{{ ug.name }}</h2>
 
+{% if ug.usergroup %}
+<div class="logo">
+  <a href="{{ ug.organization.linkurl }}">
+    <img src="{{ ug.usergroup.organization.logo.url }}" alt="{{ ug.usergroup.name }} logo" />
+  </a>
+</div>
+{% endif %}
 <h3>Meetings</h3>
 
 <h4>When</h4>
