@@ -29,13 +29,13 @@ See <a href="{% url exhibitors %}">User Groups</a> for a list of Ottawa User Gro
 <ul class="allgroups">
   {% for ug in the_ugs %}
   <li class="{% cycle 'odd' 'even' as rowcolor %}" title="{{ ug.meeting_time_as_string }} / {{ ug.meeting_location_as_string }}">
-    {% if ug.usergroup.confirmed %}
+    {% if ug.confirmed %}
     <img src="{{ settings.STATIC_URL }}/images/check.png" alt="checked" title="Has reserved a table on Feb 9" />
     {% else %}
     <div class="blankcheck"></div>
     {% endif %}
     <a href="{{ ug.url_string }}" target="_blank"><img src="{{ settings.STATIC_URL }}images/external-link.png" alt="external link" title="{{ ug.url_string }} " /></a>
-    <a href="{% url group ug.id %}" class="groupname">{{ ug.name }}</a>
+    <a href="{% url group ug.id %}" class="groupname">{{ ug.organization.name }}</a>
   </li>
   {% endfor %}
 </ul>
