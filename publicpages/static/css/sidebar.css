@@ -8,27 +8,27 @@
     padding-left: 1em;
 }
 
-.sidebar div {
-    text-align: right;
-}
-
 .sidebar h2 {
-/*
-  background-color: #67B0E4;
-*/
     color: #4489BF;
     text-align: center;
 }
 
 .sidebar .sponsor-div h3 {
-   /* background-color: #9BD4FF; */
    color:  #4489BF;
    text-align: center;
 }
 
-.sidebar #attention {
+.sidebar .one-sponsor {
+    margin: 0 0 0.5em 0;
+}
+
+.sidebar .attention {
     color: #903;
     background-color: #FF0;
+}
+
+.sidebar .msg {
+    text-align: right;
 }
 
 .sidebar h1,
@@ -42,24 +42,18 @@
     color: #4489BF;
 }
 
-.sidebar ul {
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar ul li {
-    list-style: none none;
-    background-image: none;
-    margin: 1em 0;
-}
-
-
 img.platinum {
-    max-width: 100px;
+    max-width: 200px;
+    border: solid 0px black;
+    margin: auto;
+    display: block;
 }
 
 img.gold, img.silver, img.bronze {
-    max-width: 75px;
+    max-width: 100px;
+    border: solid 0px black;
+    margin: auto;
+    display: block;
 }
 
 hr {
@@ -68,15 +62,50 @@ hr {
 }
 
 
-/*
-#shopify_item {
-    height: 57px;
-    width: 189px;
-    overflow: hidden;
+@media (max-device-width: 900px) {
+    .sidebar {
+        clear: right;
+        width: 100%;
+    }
+
+    .sponsor-div.gold-div,
+    .sponsor-div.silver-div,
+    .sponsor-div.bronze-div,
+    hr.sometimes,
+    div.sidebar h2 {
+        display: none;
+    }
+
+    div.sidebar h3 {
+        font-size: 2.0em;
+        width: 10%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        display: inline;
+    }
 }
-*/
 
+@media (max-width: 900px) {
+    .sidebar {
+        clear: right;
+        width: 100%;
+    }
 
-ul.confirmed-sponsors img {
-    max-height:  25px;
+    .sponsor-div.gold-div,
+    .sponsor-div.silver-div,
+    .sponsor-div.bronze-div,
+    hr.sometimes,
+    div.sidebar h2 {
+        display: none;
+    }
+
+    div.sidebar h3 {
+        font-size: 1.5em;
+        width: 10%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        display: inline;
+    }
 }

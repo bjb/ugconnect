@@ -1,13 +1,4 @@
-/*
-.base {
-	/* border: 1px solid #000;
-	/* margin: 2em;
-	margin: 0;
-	/* width: 10em;
-	/* padding: 5px;
-	padding: 0;
-}
-*/
+
 
 #content {
     width: 63%;
@@ -28,11 +19,6 @@ table.sponsorship-levels {
 table.sponsorship-levels tr.heading {
     border-bottom:  solid 1px #888888;
 }
-/*
-table.sponsorship-levels td {
-    width:  140px;
-}
-*/
 
 table.sponsorship-levels td.level {
     text-align: center;
@@ -55,10 +41,27 @@ table.sponsorship-levels td.amount {
     padding-left:  20px;
 }
 
+#content ul.confirmed-sponsors li {
+    margin: 0.5em 0 0 0;
+}
+
+#content .confirmed-sponsors img {
+    max-height: 25px;
+}
+
+
+#content ul.confirmed-usergroups li {
+    margin: 0.5em 0 0 0;
+}
+
+#content .confirmed-usergroups img {
+    max-height: 25px;
+}
+
 
 .contactus dt {
     font-weight: 800;
-    float: left;
+    /* float: left; */
     width:  5em;
     height:  3em;
 }
@@ -157,31 +160,17 @@ div.blankcheck {
 }
 
 
-ul.allgroups img {
-    position: relative;
-    bottom: -3px;
+@media (max-device-width: 900px) {
+    #content {
+        width: 100%;
+        clear: right;
+    }
 }
 
-table.allgroups {
-    border-spacing:  2em 0;
-    /* border-collapse: collapse; */
-    border:  solid 1px #888888;
-}
-
-table.allgroups tr.heading {
-    border-bottom:  solid 1px #888888;
-}
-/*
-table.allgroups td {
-    width:  140px;
-}
-*/
-
-table.allgroups td.level {
-    text-align: center;
-}
-
-table.allgroups td.amount {
-    text-align: right;
+@media (max-width: 900px) {
+    #content {
+        width: 100%;
+        clear: right;
+    }
 }
 

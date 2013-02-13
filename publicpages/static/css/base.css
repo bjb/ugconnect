@@ -1,3 +1,10 @@
+/*
+@media all and (max-width: 44em), all and (max-height: 547px) {
+    body {
+        background-color: green;
+    }
+}
+*/
 
 body {
     margin:   0;
@@ -5,13 +12,15 @@ body {
     background-image:  url(../images/people-faded.jpg);
     background-repeat: repeat-y;
     font-family:  "ProximaNova", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 100%;
 } /* "ProximaNova", "Helvetica Neue" - try Googles web fonts */
 
 div#fullpage {
 }
 
 div#page {
-    width: 800px;
+    width:  80%;
+    /* width: 800px; */
     margin: 30px auto;
     /* border: solid 1px red; */
     background-color: white;
