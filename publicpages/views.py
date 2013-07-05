@@ -5,8 +5,8 @@ from django.contrib.auth import decorators    # for decorators.login_required
 from django.contrib.auth import models  # for models.User
 from django.db.models import Q
 
-from publicpages.models import Sponsor, UserGroup, Organization, Theme, BzflagTeam, UserGroup2
-from publicpages.forms import SponsorForm, UserGroupForm, UserProfileForm, BzflagTeamForm, UserGroup2Form
+from publicpages.models import Sponsor, UserGroup, Organization, Theme, BzflagTeam
+from publicpages.forms import SponsorForm, UserGroupForm, UserProfileForm, BzflagTeamForm, GroupListForm
 from osf import settings
 
 import datetime
@@ -149,7 +149,7 @@ def exhibitors (request):
     menustatus['exhibitor'] = 'selected'
 
     sorted_sponsors = Sponsor.the_sponsors ()
-    ugs = UserGroup.objects.filter (confirmed = True)
+    ugs = UserGroup.objects.filter (confirmed__exact = True)
     extra_form_fields = '_exhibitor_extra_fields.html'
 
     ef = None
@@ -322,11 +322,11 @@ def grouplist (request):
 
     if 'GET' == request.method:
         debug_str += '; GET'
-        form = UserGroup2Form ()
-        the_ugs = UserGroup2.objects.all ().order_by ('name')
+        form = GroupListForm ()
+        the_ugs = UserGroup.objects.all ().order_by ('organization__name')
     else:
         debug_str += '; not GET'
-        form = UserGroup2Form (request.POST)
+        form = GroupListForm (request.POST)
         if form.is_valid ():
 
             debug_str += '; form valid'
@@ -353,7 +353,7 @@ def grouplist (request):
                 else:
                     query_weeks |= Q(meet_week_of_month = num)
 
-            the_ugs = UserGroup2.objects.filter (query_days, query_weeks).order_by ('name')
+            the_ugs = UserGroup.objects.filter (query_days, query_weeks).order_by ('organization__name')
 
         else:
             debug_str += '; form INvalid'
@@ -365,8 +365,8 @@ def grouplist (request):
             debug_str += ':  FIELD_ERRORS (week_of_month): '
             for error in form['week_of_month'].errors:
                 debug_str += error
-            form = UserGroup2Form ()
-            the_ugs = UserGroup2.objects.all ().order_by ('name')
+            form = GroupListForm ()
+            the_ugs = UserGroup.objects.all ().order_by ('organization__name')
 
     theme = Theme.objects.get (name = themeName)
 
@@ -394,7 +394,7 @@ def group (request, id):
 
     sorted_sponsors = Sponsor.the_sponsors ()
 
-    the_ug = UserGroup2.objects.get (pk = int (id))
+    the_ug = UserGroup.objects.get (pk = int (id))
 
     theme = Theme.objects.get (name = themeName)
 

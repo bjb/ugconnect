@@ -19,7 +19,7 @@ have access from 10:00 am.
 <p>See <a href="{% url grouplist %}">Ottawa Groups</a> for a list of all the Ottawa User Groups we know about, so far.</p>
 <ul class="confirmed-usergroups">
   {% for ug in ugs %}
-  <li><a href="{{ ug.organization.linkurl }}"><img src="{{ ug.organization.logo.url }}" alt="ug logo" /></a>  <a href="{{ ug.organization.linkurl }}">{{ ug.organization.name }}</a></li>
+  <li><a href="{{ ug.web_site }}"><img src="{{ ug.organization.logo.url }}" alt="ug logo" /></a>  <a href="{{ ug.web_site }}">{{ ug.organization.name }}</a></li>
   {% endfor %}
 </ul>
 <h3>Suggestions for what to present</h3>

@@ -1,4 +1,4 @@
-from publicpages.models import Organization, Sponsor, UserGroup, Payment, Theme, UserProfile, BzflagTeam, UserGroup2
+from publicpages.models import Organization, Sponsor, UserGroup, Payment, Theme, UserProfile, BzflagTeam
 from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 
@@ -38,9 +38,6 @@ class HasUserGroupFilter(SimpleListFilter):
         return answer
 
 
-class UserGroup2Admin (admin.ModelAdmin):
-    list_filter = (HasUserGroupFilter,)
-
 class PaymentAdmin (admin.ModelAdmin):
     pass
 
@@ -57,7 +54,6 @@ class BzflagTeamAdmin (admin.ModelAdmin):
 admin.site.register (Organization, OrganizationAdmin)
 admin.site.register (Sponsor, SponsorAdmin)
 admin.site.register (UserGroup, UserGroupAdmin)
-admin.site.register (UserGroup2, UserGroup2Admin)
 admin.site.register (Payment, PaymentAdmin)
 admin.site.register (Theme, ThemeAdmin)
 admin.site.register (UserProfile, UserProfileAdmin)

@@ -132,30 +132,13 @@ WHICHWEEK_CHOICES = (
     ('6', 'Last'),
 )
 
-class UserGroup2Form (forms.Form):
+class GroupListForm (forms.Form):
 
-    # show_sunday = forms.BooleanField (required = False)
-    # show_monday = forms.BooleanField (required = False)
-    # show_tuesday = forms.BooleanField (required = False)
-    # show_wednesday = forms.BooleanField (required = False)
-    # show_thursday = forms.BooleanField (required = False)
-    # show_friday = forms.BooleanField (required = False)
-    # show_saturday = forms.BooleanField (required = False)
-    # show_unknown = forms.BooleanField (required = False)
-    # show_all = forms.BooleanField (required = False)
     day_of_week = forms.MultipleChoiceField (choices = WEEKDAYS_CHOICES, required = False,
         widget = forms.SelectMultiple (attrs = {'size' : '%d' % len (WEEKDAYS_CHOICES),
                                                 'class' : 'multi-select'}))
 
 
-    # show_first = forms.BooleanField (required=False)
-    # show_second = forms.BooleanField (required=False)
-    # show_third = forms.BooleanField (required=False)
-    # show_fourth = forms.BooleanField (required=False)
-    # show_fifth = forms.BooleanField (required=False)
-    # show_last = forms.BooleanField (required=False)
-    # show_unknown2 = forms.BooleanField (required=False)
-    # show_all = forms.BooleanField (required=False)
     week_of_month = forms.MultipleChoiceField (choices = WHICHWEEK_CHOICES, required = False,
         widget = forms.SelectMultiple (attrs = {'size' : '%d' % len (WHICHWEEK_CHOICES),
                                                 'class' : 'multi-select'}))
