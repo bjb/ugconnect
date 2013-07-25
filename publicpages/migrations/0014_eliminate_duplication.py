@@ -11,9 +11,6 @@ class Migration(SchemaMigration):
         # Deleting model 'UserGroup2'
         db.delete_table('publicpages_usergroup2')
 
-        # Deleting field 'Organization.linkurl'
-        db.delete_column('publicpages_organization', 'linkurl')
-
 
     def backwards(self, orm):
         # Adding model 'UserGroup2'
@@ -33,11 +30,6 @@ class Migration(SchemaMigration):
             ('other_url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
         ))
         db.send_create_signal('publicpages', ['UserGroup2'])
-
-        # Adding field 'Organization.linkurl'
-        db.add_column('publicpages_organization', 'linkurl',
-                      self.gf('django.db.models.fields.CharField')(max_length=128, null=True, blank=True),
-                      keep_default=False)
 
 
     models = {
@@ -101,6 +93,7 @@ class Migration(SchemaMigration):
             'howhear': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
+            'linkurl': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True', 'blank': 'True'}),
             'logo': ('django.db.models.fields.files.ImageField', [], {'default': "'unknown.png'", 'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '64'})
         },

@@ -16,6 +16,7 @@ MANAGERS = ADMINS
 
 DEBUG = True
 SECRET_KEY = 'a secret key'
+INTERNAL_IPS = ('127.0.0.1',)
 
 DATABASES = {
     'default': {
@@ -111,6 +112,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,6 +134,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'debug_toolbar',
+    'django_extensions',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

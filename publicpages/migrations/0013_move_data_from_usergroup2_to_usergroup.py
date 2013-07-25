@@ -36,12 +36,15 @@ class Migration(DataMigration):
                     if 1 < orgs.count ():
                         raise StandardError ('Not expecting more than 1 Organization for %s' % ug2.name)
                     org = orgs[0]
+                    if org.linkurl != ug2.web_site:
+                        raise StandardError ('linkurl and web_site are not the same for %s:  %s vs %s' % (ug2.name, ug2.web_site, org.linkurl))
                 else:
                     org = orm.Organization ()
                     org.name = ug2.name
                     org.contactname = ('unknown')
                     org.contactinfo = ('unknown@example.com')
                     org.date_created = datetime.date.today ()
+                    org.linkurl = ug2.web_site
                     org.save ()
 
                 # create a UserGroup
@@ -50,8 +53,8 @@ class Migration(DataMigration):
 
                 ug.date_created = datetime.date.today ()
             ug.save ()
-        
-                
+
+
 
     def backwards(self, orm):
         pass

@@ -60,7 +60,7 @@ class Organization(models.Model):
     name = models.CharField (max_length = 64)
     contactname = models.CharField (max_length = 64)
     contactinfo = models.CharField (max_length = 64)
-#    linkurl = models.CharField (max_length = 128, null = True, blank = True)
+    linkurl = models.CharField (max_length = 128, null = True, blank = True)
     comment = models.TextField (null = True, blank = True)
     howhear = models.TextField (null = True, blank = True)
     logo = models.ImageField (upload_to = 'images', default = 'unknown.png')
