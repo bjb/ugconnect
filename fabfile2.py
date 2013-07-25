@@ -17,7 +17,7 @@ VIRTUALENV = 'pythonenv'
 ACTIVATE_SCRIPT = os.path.join (VIRTUALENVDIR, VIRTUALENV, 'bin/activate')
 PROJECT_LOCATION = '/srv/UGC'
 PROJECT_ROOT = os.path.join (PROJECT_LOCATION, PROJECT)
-WSGI_FILE = 'osf/django.wsgi'
+WSGI_FILE = 'wsgi/django.wsgi'
 #REPOSITORY = 'ssh://blueeyes.stuffed.animals/home/bjb/projects/osw/2012/web/osf'
 REPOSITORY = '/home/bjb/projects/osw/2012/web/osf'
 
