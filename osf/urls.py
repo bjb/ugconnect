@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^publicpages/', include('publicpages.urls')),
 
 
-    url(r'^allgroups/', include('allgroups.urls')),
+    #url(r'^allgroups/', include('allgroups.urls')),
 
 
 
