@@ -14,7 +14,7 @@ framework.
 
 """
 import site
-site.addsitedir('/usr/local/pythonenv/OSF/lib/python2.5/site-packages')
+site.addsitedir('/usr/local/pythonenv/OSF/lib/python2.7/site-packages')
 
 import os
 
