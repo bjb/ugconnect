@@ -149,7 +149,6 @@ INSTALLED_APPS = (
     'captcha',
     'south',
     'publicpages',
-    'allgroups'
 )
 
 AUTH_PROFILE_MODULE = 'publicpages.UserProfile'
